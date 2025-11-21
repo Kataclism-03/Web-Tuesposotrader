@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Comunidad Telegram",
+    "url": "https://t.me/tuesposotrader_club",
+    "type": "telegram",
+    "description": "Networking con Tu Esposo Trader, análisis colaborativo y soporte."
+  },
+  {
+    "label": "TikTok",
+    "url": "https://www.tiktok.com/@tuesposotrader",
+    "type": "tiktok",
+    "description": "Clips rápidos y cápsulas en video para ideas de trading y estilo de vida."
+  },
+  {
+    "label": "YouTube",
+    "url": "https://youtube.com/@tuesposotrader",
+    "type": "youtube",
+    "description": "Lives semanales, recap de operaciones y Q&A con Enmanuel."
+  },
+  {
+    "label": "Instagram",
+    "url": "https://instagram.com/tuesposotrader",
+    "type": "instagram",
+    "description": "Highlights diarios, mindset y lifestyle del trading en pareja."
+  }
+]
