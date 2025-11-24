@@ -374,7 +374,11 @@ async function initVideoGallery() {
 
     try {
         // Detectar automáticamente todos los videos en la carpeta de assets usando Vite
-        const modules = import.meta.glob("../assets/videos/*.{mp4,webm}", { eager: true, as: "url" });
+        const modules = import.meta.glob("../assets/videos/*.{mp4,webm}", {
+            eager: true,
+            import: "default",
+            query: "?url"
+        });
         const discovered = Object.values(modules || {});
 
         console.debug("initVideoGallery: discovered video files ->", discovered.length);

@@ -19,6 +19,6 @@
   "license": "MIT",
   "dependencies": {
     "simple-icons": "^15.21.0",
-    "vite": "^4.0.0"
+    "vite": "^7.2.4"
   }
 }
