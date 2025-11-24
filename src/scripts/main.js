@@ -13,6 +13,10 @@ const componentFragments = import.meta.glob("../components/**/*.html", {
     import: "default",
     query: "?raw"
 });
+const photoAssets = import.meta.glob("../assets/photos/*.{avif,gif,jpeg,jpg,png,webp}", {
+    eager: true,
+    import: "default"
+});
 
 const slots = [
     { id: "header", path: "../components/header.html" },
@@ -178,10 +182,18 @@ async function initMediaGallery() {
     }
 
     try {
-        const photos = galleryEntries.map((item, index) => ({
-            src: new URL(item.src, import.meta.url).href,
-            alt: item.alt || `Contenido Tu Esposo Trader ${String(index + 1).padStart(2, "0")}`
-        }));
+        const photos = galleryEntries.map((item, index) => {
+            const resolvedSrc = photoAssets[item.src];
+
+            if (!resolvedSrc) {
+                throw new Error(`Recurso de galería no encontrado: ${item.src}`);
+            }
+
+            return {
+                src: resolvedSrc,
+                alt: item.alt || `Contenido Tu Esposo Trader ${String(index + 1).padStart(2, "0")}`
+            };
+        });
 
         track.innerHTML = photos
             .map(
