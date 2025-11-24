@@ -3,17 +3,24 @@ import telegramSvg from 'simple-icons/icons/telegram.svg?raw';
 import tiktokSvg from 'simple-icons/icons/tiktok.svg?raw';
 import youtubeSvg from 'simple-icons/icons/youtube.svg?raw';
 import instagramSvg from 'simple-icons/icons/instagram.svg?raw';
+import galleryEntries from "../data/gallery.json";
+import socialLinks from "../data/social-links.json";
 
 // Logo asset left in `src/assets/photos` by the user — resolve via Vite
 const logoUrl = new URL('../assets/photos/logo-512x512.png', import.meta.url).href;
+const componentFragments = import.meta.glob("../components/**/*.html", {
+    eager: true,
+    import: "default",
+    query: "?raw"
+});
 
 const slots = [
-    { id: "header", path: "./components/header.html" },
-    { id: "hero", path: "./components/hero.html" },
-    { id: "about", path: "./components/about.html" },
-    { id: "media-gallery", path: "./components/media-gallery.html" },
-    { id: "social-links", path: "./components/social-links.html" },
-    { id: "footer", path: "./components/footer.html" }
+    { id: "header", path: "../components/header.html" },
+    { id: "hero", path: "../components/hero.html" },
+    { id: "about", path: "../components/about.html" },
+    { id: "media-gallery", path: "../components/media-gallery.html" },
+    { id: "social-links", path: "../components/social-links.html" },
+    { id: "footer", path: "../components/footer.html" }
 ];
 
 const backgroundImages = Array.from({ length: 25 }, (_, index) =>
@@ -96,8 +103,17 @@ async function injectFragment(targetId, url) {
         return;
     }
 
+    const fragment = componentFragments[url];
+
+    if (typeof fragment === "string") {
+        container.innerHTML = fragment;
+        registerRevealElements(container);
+        return;
+    }
+
+    // Fallback (dev only) in case the fragment is missing from the bundle.
     try {
-        const response = await fetch(url);
+        const response = await fetch(url.replace("../", "./"));
         if (!response.ok) {
             throw new Error(`${response.status} ${response.statusText}`);
         }
@@ -115,50 +131,39 @@ async function initSocialLinks() {
         return;
     }
 
-    try {
-        const response = await fetch("./data/social-links.json");
-        if (!response.ok) {
-            throw new Error(`${response.status} ${response.statusText}`);
-        }
-
-        const links = await response.json();
-
-        const getIcon = (type) => {
-            switch (type) {
-                case "telegram": {
-                    return telegramSvg;
-                }
-                case "tiktok": {
-                    return tiktokSvg;
-                }
-                case "youtube": {
-                    return youtubeSvg;
-                }
-                case "instagram": {
-                    return instagramSvg;
-                }
-                default:
-                    return `<svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>`;
+    const getIcon = (type) => {
+        switch (type) {
+            case "telegram": {
+                return telegramSvg;
             }
-        };
+            case "tiktok": {
+                return tiktokSvg;
+            }
+            case "youtube": {
+                return youtubeSvg;
+            }
+            case "instagram": {
+                return instagramSvg;
+            }
+            default:
+                return `<svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>`;
+        }
+    };
 
-        grid.innerHTML = links
-            .map(
-                                (link) => `
-                                <a class="social-card social-card--${link.type} glow-hover reveal" href="${link.url}" target="_blank" rel="noopener">
-                                    <span class="social-card__icon">${getIcon(link.type)}</span>
-                                    <div class="social-card__body">
-                                        <strong>${link.label}</strong>
-                                        <p>${link.description}</p>
-                                    </div>
-                                </a>`
-            )
-            .join("");
+    grid.innerHTML = socialLinks
+        .map(
+            (link) => `
+            <a class="social-card social-card--${link.type} glow-hover reveal" href="${link.url}" target="_blank" rel="noopener">
+                <span class="social-card__icon">${getIcon(link.type)}</span>
+                <div class="social-card__body">
+                    <strong>${link.label}</strong>
+                    <p>${link.description}</p>
+                </div>
+            </a>`
+        )
+        .join("");
 
-        registerRevealElements(grid);
-    } catch (error) {
-        console.error("Error al cargar los enlaces de redes sociales:", error);
-    }
+    registerRevealElements(grid);
 }
 
 async function initMediaGallery() {
@@ -173,13 +178,7 @@ async function initMediaGallery() {
     }
 
     try {
-        const response = await fetch("./data/gallery.json");
-        if (!response.ok) {
-            throw new Error(`${response.status} ${response.statusText}`);
-        }
-
-        const entries = await response.json();
-        const photos = entries.map((item, index) => ({
+        const photos = galleryEntries.map((item, index) => ({
             src: new URL(item.src, import.meta.url).href,
             alt: item.alt || `Contenido Tu Esposo Trader ${String(index + 1).padStart(2, "0")}`
         }));
