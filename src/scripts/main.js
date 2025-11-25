@@ -23,6 +23,7 @@ const slots = [
     { id: "hero", path: "../components/hero.html" },
     { id: "about", path: "../components/about.html" },
     { id: "media-gallery", path: "../components/media-gallery.html" },
+    { id: "benefits", path: "../components/benefits.html" },
     { id: "social-links", path: "../components/social-links.html" },
     { id: "footer", path: "../components/footer.html" }
 ];
