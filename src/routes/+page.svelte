@@ -10,7 +10,7 @@
 <svelte:head>
   <title>Tu Esposo Trader | Sistema Automático de Copytrading y Señales VIP</title>
   <meta name="description" content="Únete a la academia Tu Esposo Trader (Enmanuel Díaz). Domina los mercados con nuestro sistema automatizado de copytrading IA, señales en vivo y torneos.">
-  <meta name="keywords" content="copytrading, trading automático, Tu Esposo Trader, Enmanuel Díaz, bot de trading telegram, opciones binarias, señales de trading, Exnova, Quotex, IQ Option, trading algorítmico, IA trading">
+  <meta name="keywords" content="copytrading, trading automático, Tu Esposo Trader, Enmanuel Díaz, bot de trading telegram, opciones binarias, señales de trading, Exnova, Quotex, IQ Option, trading algorítmico, IA trading, cursos, academia, éxito, finanzas, mercado, bolsa de valores">
   
   <meta property="og:title" content="Tu Esposo Trader | Sistema Automático de Copytrading">
   <meta property="og:description" content="Automatiza tus operaciones con la Inteligencia Artificial de Tu Esposo Trader. Copia señales en Exnova y Quotex 24/7 sin esfuerzo.">
