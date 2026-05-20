@@ -70,7 +70,7 @@
         <a href="#testimonios">Testimonios</a>
         <a href="#social-links">Comunidad</a>
     </nav>
-    <a class="header__cta glow-hover" href="#social-links">Únete al canal</a>
+    <a class="header__cta glow-hover" href="https://t.me/tuesposotrader" target="_blank" rel="noopener">Únete al canal</a>
 </header>
 <main>
 <section id="hero" class="hero reveal">
@@ -81,7 +81,7 @@
             Soy Enmanuel Díaz, conocido como Tu Esposo Trader. Comparto mi proceso, operaciones en vivo y análisis para que puedas operar con confianza.
         </p>
         <div class="hero__actions">
-            <a class="btn btn-primary" href="#social-links">Únete a la Comunidad</a>
+            <a class="btn btn-primary" href="https://t.me/tuesposotrader" target="_blank" rel="noopener">Únete a la Comunidad</a>
             <a class="btn btn-secondary" href="#about">Conocer más</a>
         </div>
     </div>
