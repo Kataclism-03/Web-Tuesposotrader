@@ -134,7 +134,9 @@
 }
 
 .benefits header, .about header, .media-gallery header, .social-links header {
-    margin-bottom: 3rem;
+    margin: 0 auto 3rem auto;
+    text-align: center;
+    max-width: 800px;
 }
 
 .benefits header h2, .about header h2, .media-gallery header h2, .social-links header h2 {
@@ -157,6 +159,8 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    text-align: center;
+    align-items: center;
 }
 
 .benefits__item:hover, .about__grid article:hover, .social-card:hover {
@@ -211,14 +215,28 @@
 
 .media-gallery__grid {
     display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    grid-template-columns: 1fr; /* Forzar 1 sola columna vertical */
+}
+
+.media-gallery__column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.media-gallery__column-title {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--clr-text);
 }
 
 .media-gallery__carousel {
     display: flex;
     align-items: center;
     gap: 1rem;
+    justify-content: center;
 }
 
 .media-gallery__viewport {
@@ -226,6 +244,7 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
     padding-bottom: 1rem;
+    width: 100%;
 }
 
 .media-gallery__viewport::-webkit-scrollbar {
@@ -238,20 +257,29 @@
 }
 
 .media-card {
-    flex: 0 0 250px;
-    height: 150px;
+    flex: 0 0 280px;
+    height: 180px;
     border-radius: 12px;
     background: var(--clr-surface);
     border: 1px solid var(--clr-border);
     overflow: hidden;
     position: relative;
     cursor: pointer;
+    padding: 0;
+    display: block;
 }
 
-.media-card img, .media-card video {
+.media-card__thumb {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.media-card img, .media-card video, .media-card__video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 .social-links__grid {
