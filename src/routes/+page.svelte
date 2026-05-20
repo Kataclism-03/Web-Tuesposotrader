@@ -7,6 +7,22 @@
     });
 </script>
 
+<svelte:head>
+  <title>Tu Esposo Trader | Sistema Automático de Copytrading y Señales VIP</title>
+  <meta name="description" content="Únete a la academia Tu Esposo Trader (Enmanuel Díaz). Domina los mercados con nuestro sistema automatizado de copytrading IA, señales en vivo y torneos.">
+  <meta name="keywords" content="copytrading, trading automático, Tu Esposo Trader, Enmanuel Díaz, bot de trading telegram, opciones binarias, señales de trading, Exnova, Quotex, IQ Option, trading algorítmico, IA trading">
+  
+  <meta property="og:title" content="Tu Esposo Trader | Sistema Automático de Copytrading">
+  <meta property="og:description" content="Automatiza tus operaciones con la Inteligencia Artificial de Tu Esposo Trader. Copia señales en Exnova y Quotex 24/7 sin esfuerzo.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.tuesposotrader.com/">
+  <meta property="og:image" content="https://www.tuesposotrader.com/assets/photos/logo-512x512.png">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tu Esposo Trader | Copytrading IA">
+  <meta name="twitter:description" content="Automatiza tus ganancias con nuestro bot de Telegram y estrategia cuántica.">
+</svelte:head>
+
 <div id="background-rotator" class="background-rotator"></div>
 <div id="page-wrapper" class="page-wrapper">
 <header class="header">
@@ -27,27 +43,26 @@
 </header>
 <main>
 <section id="hero" class="hero reveal">
+    <div class="bg-glow"></div>
     <div class="hero__content">
         <h1>Domina los mercados con una guía clara y transparente.</h1>
         <p>
             Soy Enmanuel Díaz, conocido como Tu Esposo Trader. Comparto mi proceso, operaciones en vivo y análisis para que puedas operar con confianza.
         </p>
         <div class="hero__actions">
-            <a class="btn btn-primary glow-hover" href="#media-gallery">Ver contenido</a>
+            <a class="btn btn-primary" href="#media-gallery">Ver contenido</a>
             <a class="btn btn-secondary" href="#about">Conocer más</a>
         </div>
     </div>
-    <div class="hero__visual">
-        <div class="hero__card">
-            <span>Rentabilidad 2025</span>
-            <strong>+80.0%</strong>
-        </div>
-        <div class="hero__card">
-            <span>Sesiones en vivo</span>
-            <strong>5/semana</strong>
-        </div>
-    </div>
 </section>
+
+<div class="brokers-bar">
+    <span>Exnova</span>
+    <span>IQ Option</span>
+    <span>Quotex</span>
+    <span>Pocket Option</span>
+    <span>Olymp Trade</span>
+</div>
 <section id="about" class="about reveal">
     <header>
         <h2>Más que un trader, un mentor.</h2>
@@ -169,24 +184,24 @@
 </section>
 <section class="benefits reveal" id="testimonios">
   <header>
-    <h2>Testimonios Reales</h2>
+    <h2>Traders trust us</h2>
     <p>Lo que dice nuestra comunidad sobre el copytrading automático.</p>
   </header>
   <div class="benefits__grid">
     <article class="benefits__item">
-      <h3>Carlos M.</h3>
+      <div class="stars">★★★★★</div>
       <p>"Nunca pensé que el copytrading pudiera ser tan desatendido. Literalmente conecté mi cuenta y el bot de Telegram hace el resto."</p>
-      <p><strong>+34% este mes</strong></p>
+      <p><strong>Carlos M.</strong> <span style="color:var(--clr-muted)">✔ Verificado</span></p>
     </article>
     <article class="benefits__item">
-      <h3>Elena R.</h3>
+      <div class="stars">★★★★★</div>
       <p>"El nivel de soporte y la precisión de las entradas son increíbles. No tengo tiempo para analizar gráficos, esta es la solución."</p>
-      <p><strong>+12% en 2 semanas</strong></p>
+      <p><strong>Elena R.</strong> <span style="color:var(--clr-muted)">✔ Verificado</span></p>
     </article>
     <article class="benefits__item">
-      <h3>Javier T.</h3>
+      <div class="stars">★★★★★</div>
       <p>"La IA tiene un filtro de noticias que evita pérdidas tontas. Muy profesional y transparente."</p>
-      <p><strong>+45% acumulado</strong></p>
+      <p><strong>Javier T.</strong> <span style="color:var(--clr-muted)">✔ Verificado</span></p>
     </article>
   </div>
 </section>
