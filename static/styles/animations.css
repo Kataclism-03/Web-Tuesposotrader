@@ -1,15 +1,10 @@
 .reveal {
-  opacity: 0;
-  transform: translateY(40px);
+  opacity: 1; /* Was 0, causing blank page */
+  transform: translateY(0);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .glow-hover:hover {
-  box-shadow: 0 0 26px rgba(246, 207, 114, 0.48);
+  box-shadow: 0 0 26px rgba(93, 95, 239, 0.48); /* Updated to purple */
   transform: translateY(-4px);
 }

@@ -59,9 +59,6 @@
 <div class="brokers-bar">
     <span>Exnova</span>
     <span>IQ Option</span>
-    <span>Quotex</span>
-    <span>Pocket Option</span>
-    <span>Olymp Trade</span>
 </div>
 <section id="about" class="about reveal">
     <header>
