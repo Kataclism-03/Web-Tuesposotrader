@@ -726,8 +726,6 @@ export async function init() {
     }
 
     await initSocialLinks();
-    await initMediaGallery();
-    await initVideoGallery();
     initBackgroundRotation();
     registerRevealElements();
 }

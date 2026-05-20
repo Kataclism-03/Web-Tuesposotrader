@@ -66,8 +66,8 @@
     </div>
     <nav class="header__nav">
         <a href="#about">Sobre mí</a>
-        <a href="#media-gallery">Contenido</a>
         <a href="#benefits">Beneficios</a>
+        <a href="#testimonios">Testimonios</a>
         <a href="#social-links">Comunidad</a>
     </nav>
     <a class="header__cta glow-hover" href="#social-links">Únete al canal</a>
@@ -81,7 +81,7 @@
             Soy Enmanuel Díaz, conocido como Tu Esposo Trader. Comparto mi proceso, operaciones en vivo y análisis para que puedas operar con confianza.
         </p>
         <div class="hero__actions">
-            <a class="btn btn-primary" href="#media-gallery">Ver contenido</a>
+            <a class="btn btn-primary" href="#social-links">Únete a la Comunidad</a>
             <a class="btn btn-secondary" href="#about">Conocer más</a>
         </div>
     </div>
@@ -111,42 +111,6 @@
             <h3>Formación integral</h3>
             <p>Sesiones educativas en análisis técnico, macroeconomía y psicotrading.</p>
         </article>
-    </div>
-</section>
-<section id="media-gallery" class="media-gallery reveal">
-    <header>
-        <h2>Últimos contenidos</h2>
-        <p>Clases magistrales, operaciones destacadas y cápsulas motivacionales.</p>
-    </header>
-    <div class="media-gallery__grid">
-        <div class="media-gallery__column media-gallery__column--photos">
-            <h3 class="media-gallery__column-title">Galería fotográfica</h3>
-            <div class="media-gallery__carousel" data-carousel="photos">
-                <button class="media-gallery__nav" data-carousel-control="prev" type="button" aria-label="Ver contenido anterior">
-                    <span aria-hidden="true">&#8249;</span>
-                </button>
-                <div class="media-gallery__viewport">
-                    <div class="media-gallery__track" id="media-gallery-track"></div>
-                </div>
-                <button class="media-gallery__nav" data-carousel-control="next" type="button" aria-label="Ver contenido siguiente">
-                    <span aria-hidden="true">&#8250;</span>
-                </button>
-            </div>
-        </div>
-        <div class="media-gallery__column media-gallery__column--videos">
-            <h3 class="media-gallery__column-title">Cápsulas en video</h3>
-            <div class="media-gallery__carousel" data-carousel="videos">
-                <button class="media-gallery__nav" data-carousel-control="prev" type="button" aria-label="Ver video anterior">
-                    <span aria-hidden="true">&#8249;</span>
-                </button>
-                <div class="media-gallery__viewport">
-                    <div class="media-gallery__track" id="video-gallery-track"></div>
-                </div>
-                <button class="media-gallery__nav" data-carousel-control="next" type="button" aria-label="Ver video siguiente">
-                    <span aria-hidden="true">&#8250;</span>
-                </button>
-            </div>
-        </div>
     </div>
 </section>
 <section id="benefits" class="benefits reveal">
