@@ -1,10 +1,20 @@
 .reveal {
-  opacity: 1; /* Was 0, causing blank page */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.glow-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .glow-hover:hover {
-  box-shadow: 0 0 26px rgba(93, 95, 239, 0.48); /* Updated to purple */
+  box-shadow: 0 0 26px rgba(93, 95, 239, 0.48);
   transform: translateY(-4px);
 }

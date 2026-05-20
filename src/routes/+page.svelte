@@ -1,9 +1,40 @@
 <script>
     import { onMount } from 'svelte';
+    
+    // Fallback/resilient IntersectionObserver via Svelte Action
+    function reveal(node) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    node.classList.add('is-visible');
+                    observer.unobserve(node);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        observer.observe(node);
+        return {
+            destroy() {
+                observer.disconnect();
+            }
+        };
+    }
+
     onMount(async () => {
         // Load main.js dynamically so it runs after DOM is ready
-        const { init } = await import('../scripts/main.js');
-        init();
+        try {
+            const { init } = await import('../scripts/main.js');
+            await init();
+        } catch(e) {
+            console.error("Error loading main.js", e);
+        }
+        
+        // Failsafe: force reveal on anything that was missed
+        setTimeout(() => {
+            document.querySelectorAll('.reveal:not(.is-visible)').forEach(el => {
+                el.classList.add('is-visible');
+            });
+        }, 1500);
     });
 </script>
 
