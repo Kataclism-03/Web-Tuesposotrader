@@ -8,25 +8,13 @@ import socialLinks from "../data/social-links.json";
 
 // Logo asset left in `src/assets/photos` by the user — resolve via Vite
 const logoUrl = new URL('../assets/photos/logo-512x512.png', import.meta.url).href;
-const componentFragments = import.meta.glob("../components/**/*.html", {
-    eager: true,
-    import: "default",
-    query: "?raw"
-});
+
 const photoAssets = import.meta.glob("../assets/photos/*.{avif,gif,jpeg,jpg,png,webp}", {
     eager: true,
     import: "default"
 });
 
-const slots = [
-    { id: "header", path: "../components/header.html" },
-    { id: "hero", path: "../components/hero.html" },
-    { id: "about", path: "../components/about.html" },
-    { id: "media-gallery", path: "../components/media-gallery.html" },
-    { id: "benefits", path: "../components/benefits.html" },
-    { id: "social-links", path: "../components/social-links.html" },
-    { id: "footer", path: "../components/footer.html" }
-];
+
 
 const backgroundImages = Array.from({ length: 25 }, (_, index) =>
     new URL(
@@ -102,33 +90,7 @@ function getMediaLightbox() {
     return mediaLightboxInstance;
 }
 
-async function injectFragment(targetId, url) {
-    const container = document.getElementById(targetId);
-    if (!container) {
-        return;
-    }
 
-    const fragment = componentFragments[url];
-
-    if (typeof fragment === "string") {
-        container.innerHTML = fragment;
-        registerRevealElements(container);
-        return;
-    }
-
-    // Fallback (dev only) in case the fragment is missing from the bundle.
-    try {
-        const response = await fetch(url.replace("../", "./"));
-        if (!response.ok) {
-            throw new Error(`${response.status} ${response.statusText}`);
-        }
-
-        container.innerHTML = await response.text();
-        registerRevealElements(container);
-    } catch (error) {
-        console.error(`No se pudo cargar ${url}:`, error);
-    }
-}
 
 async function initSocialLinks() {
     const grid = document.getElementById("social-links-grid");
@@ -749,8 +711,8 @@ function initBackgroundRotation() {
     }
 }
 
-(async function bootstrap() {
-    await Promise.all(slots.map((slot) => injectFragment(slot.id, slot.path)));
+export async function init() {
+    
 
     // Assign the logo image from `src/assets` (uses Vite asset resolution)
     try {
@@ -767,4 +729,4 @@ function initBackgroundRotation() {
     await initVideoGallery();
     initBackgroundRotation();
     registerRevealElements();
-})();
+}

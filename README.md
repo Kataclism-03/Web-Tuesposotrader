@@ -1,63 +1,42 @@
-# Blog Trader Web
+# sv
 
-Este proyecto es un blog diseñado para Enmanuel Díaz, conocido profesionalmente como **Tu Esposo Trader**. Los visitantes pueden conocer más sobre él, ver fotos y videos, y acceder a sus redes sociales y grupos de Telegram. La página está estilizada con un diseño moderno y animaciones limpias.
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-## Estructura del Proyecto
+## Creating a project
 
-- **.editorconfig**: Configuraciones de estilo de código para editores de texto.
-- **.gitignore**: Archivos y directorios que deben ser ignorados por Git.
-- **README.md**: Documentación del proyecto.
-- **package.json**: Configuración de npm, incluyendo dependencias y scripts.
-- **public/robots.txt**: Instrucciones para motores de búsqueda sobre la indexación de páginas.
-- **src/components/**: Contiene los componentes HTML del blog.
-  - **about.html**: Información sobre el cliente.
-  - **footer.html**: Pie de página del sitio.
-  - **header.html**: Encabezado del sitio.
-  - **hero.html**: Sección principal de bienvenida.
-  - **media-gallery.html**: Galería de fotos y videos.
-  - **social-links.html**: Enlaces a redes sociales y grupos de Telegram.
-- **src/data/social-links.json**: Almacena los enlaces a redes sociales y grupos de Telegram.
-- **src/index.html**: Página principal que integra todos los componentes.
-- **src/scripts/**: Contiene los scripts JavaScript del sitio.
-  - **main.js**: Lógica principal del sitio.
-  - **ui-effects.js**: Animaciones y efectos de interfaz de usuario.
-- **src/styles/**: Contiene los estilos CSS del sitio.
-  - **animations.css**: Definición de animaciones.
-  - **base.css**: Estilos básicos y globales.
-  - **layout.css**: Diseño y estructura del sitio.
-- **src/assets/**: Contiene fotos y videos utilizados en el blog.
-  - **photos/**: Fotos del cliente.
-  - **videos/**: Videos del cliente.
-- **vite.config.js**: Configuración para Vite, herramienta de construcción y desarrollo.
+If you're seeing this, you've probably already done this step. Congrats!
 
-## Instalación
-
-1. Clona el repositorio:
-   ```
-   git clone <URL_DEL_REPOSITORIO>
-   ```
-2. Navega al directorio del proyecto:
-   ```
-   cd blog-trader-web
-   ```
-3. Instala las dependencias:
-   ```
-   npm install
-   ```
-
-## Uso
-
-Para iniciar el servidor de desarrollo, ejecuta:
+```sh
+# create a new project
+npx sv create my-app
 ```
+
+To recreate this project with the same configuration:
+
+```sh
+# recreate this project
+npx sv@0.15.3 create --template minimal --types jsdoc --add sveltekit-adapter="adapter:static" --install npm ./
+```
+
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```sh
 npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
 ```
 
-Abre tu navegador y visita `http://localhost:3000` para ver el blog en acción.
+## Building
 
-## Contribuciones
+To create a production version of your app:
 
-Las contribuciones son bienvenidas. Si deseas contribuir, por favor abre un issue o envía un pull request.
+```sh
+npm run build
+```
 
-## Licencia
+You can preview the production build with `npm run preview`.
 
-Este proyecto está bajo la Licencia MIT.
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
