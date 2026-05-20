@@ -359,7 +359,8 @@ async function initVideoGallery() {
 
         const videos = discovered
             .map((url, index) => ({ src: url, poster: "", title: `Video Tu Esposo Trader ${String(index + 1).padStart(2, "0")}` }))
-            .sort();
+            .sort()
+            .slice(0, 4); // Show only the first 4 videos for performance and layout cleanups
 
         videos.forEach((v, i) => console.debug(`video[${i}] src=`, v.src));
 

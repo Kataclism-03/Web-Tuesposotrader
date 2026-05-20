@@ -245,6 +245,8 @@
     -ms-overflow-style: none;
     padding-bottom: 1rem;
     width: 100%;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
 }
 
 .media-gallery__viewport::-webkit-scrollbar {
@@ -253,13 +255,14 @@
 
 .media-gallery__track {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
+    padding: 0 1rem; /* Margen interior para el scroll */
 }
 
 .media-card {
-    flex: 0 0 280px;
-    height: 180px;
-    border-radius: 12px;
+    flex: 0 0 300px;
+    height: 200px;
+    border-radius: 16px;
     background: var(--clr-surface);
     border: 1px solid var(--clr-border);
     overflow: hidden;
@@ -267,6 +270,8 @@
     cursor: pointer;
     padding: 0;
     display: block;
+    scroll-snap-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .media-card__thumb {
