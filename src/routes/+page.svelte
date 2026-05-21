@@ -39,19 +39,44 @@
 </script>
 
 <svelte:head>
-  <title>Tu Esposo Trader | Sistema Automático de Copytrading y Señales VIP</title>
-  <meta name="description" content="Únete a la academia Tu Esposo Trader (Enmanuel Díaz). Domina los mercados con nuestro sistema automatizado de copytrading IA, señales en vivo y torneos.">
-  <meta name="keywords" content="copytrading, trading automático, Tu Esposo Trader, Enmanuel Díaz, bot de trading telegram, opciones binarias, señales de trading, Exnova, Quotex, IQ Option, trading algorítmico, IA trading, cursos, academia, éxito, finanzas, mercado, bolsa de valores">
+  <title>Tu Esposo Trader | Academia de Trading, Finanzas y Copytrading</title>
+  <meta name="description" content="Únete a la academia VIP de Tu Esposo Trader. Aprende finanzas, accede a cursos gratis, clases en vivo, copytrading automático y obtén la libertad financiera que buscas.">
+  <meta name="keywords" content="trading, finanzas, trabajos remotos, ganar dinero online, cursos de trading gratis, academia de trading, copytrading automático, señales en vivo, bot de trading, Tu Esposo Trader, opciones binarias">
   
-  <meta property="og:title" content="Tu Esposo Trader | Sistema Automático de Copytrading">
-  <meta property="og:description" content="Automatiza tus operaciones con la Inteligencia Artificial de Tu Esposo Trader. Copia señales en Exnova y Quotex 24/7 sin esfuerzo.">
+  <meta property="og:title" content="Tu Esposo Trader | Academia de Trading y Finanzas VIP">
+  <meta property="og:description" content="Accede gratis hoy. Aprende a operar con nuestros cursos y copia nuestras alertas en automático.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.tuesposotrader.com/">
   <meta property="og:image" content="https://www.tuesposotrader.com/assets/photos/logo-512x512.png">
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Tu Esposo Trader | Copytrading IA">
-  <meta name="twitter:description" content="Automatiza tus ganancias con nuestro bot de Telegram y estrategia cuántica.">
+  <meta name="twitter:title" content="Tu Esposo Trader | Oportunidad VIP">
+  <meta name="twitter:description" content="Acceso gratuito a nuestra academia de trading y copytrading.">
+  
+  <!-- SEO JSON-LD: Organization, EducationalOrganization & JobPosting -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "Academia Tu Esposo Trader",
+        "description": "Cursos de trading, finanzas, y herramientas automáticas para generar ingresos.",
+        "url": "https://www.tuesposotrader.com/",
+        "logo": "https://www.tuesposotrader.com/assets/photos/logo-512x512.png"
+      },
+      {
+        "@type": "Course",
+        "name": "Programa VIP de Trading y Finanzas",
+        "description": "Aprende a operar en los mercados financieros, utiliza scripts y señales en vivo. Únete gratis a la promoción de 100 cupos.",
+        "provider": {
+          "@type": "EducationalOrganization",
+          "name": "Tu Esposo Trader"
+        }
+      }
+    ]
+  }
+  </script>
 </svelte:head>
 
 <div id="background-rotator" class="background-rotator"></div>
@@ -66,114 +91,138 @@
     </div>
     <nav class="header__nav">
         <a href="#about">Sobre mí</a>
-        <a href="#benefits">Beneficios</a>
+        <a href="#benefits">Servicios VIP</a>
         <a href="#testimonios">Testimonios</a>
         <a href="#social-links">Comunidad</a>
     </nav>
-    <a class="header__cta glow-hover" href="https://t.me/tuesposotrader" target="_blank" rel="noopener">Únete al canal</a>
+    <a class="header__cta glow-hover" href="https://t.me/tuesposotrader" target="_blank" rel="noopener" data-sveltekit-reload>Acceso VIP</a>
 </header>
 <main>
-<section id="hero" class="hero reveal">
+
+<section id="hero-promo" class="hero-promo reveal">
     <div class="bg-glow"></div>
-    <div class="hero__content">
-        <h1>Domina los mercados con una guía clara y transparente.</h1>
-        <p>
-            Soy Enmanuel Díaz, conocido como Tu Esposo Trader. Comparto mi proceso, operaciones en vivo y análisis para que puedas operar con confianza.
-        </p>
-        <div class="hero__actions">
-            <a class="btn btn-primary" href="https://t.me/tuesposotrader" target="_blank" rel="noopener">Únete a la Comunidad</a>
-            <a class="btn btn-secondary" href="#about">Conocer más</a>
+    <div class="hero-promo__container">
+        <div class="hero-promo__content">
+            <div class="urgency-badge">
+                <span class="pulse-dot"></span>
+                <strong>Promoción Especial:</strong> Buscamos a 100 personas hoy.
+            </div>
+            
+            <h1>Tu oportunidad real en el <span>Mundo de las Finanzas</span>.</h1>
+            <p class="hero-promo__subtitle">
+                Accede <strong>100% GRATIS</strong> a nuestra comunidad VIP. Cursos, Copytrading Automático, Clases en vivo y Scripts. No tienes que hacer nada más que unirte.
+            </p>
+            
+            <div class="urgency-tracker">
+                <div class="tracker-info">
+                    <span>Plazas VIP Reclamadas Hoy</span>
+                    <span class="tracker-numbers">87 / 100</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 87%;"></div>
+                </div>
+            </div>
+
+            <div class="hero__actions">
+                <a class="btn btn-primary btn-pulse" href="https://t.me/tuesposotrader" target="_blank" rel="noopener" data-sveltekit-reload>
+                    Reclamar Acceso Gratis
+                </a>
+            </div>
+        </div>
+        
+        <div class="hero-promo__video-wrapper glow-hover">
+            <video class="promo-video" autoplay loop muted playsinline poster="/assets/photos/logo-512x512.png">
+                <source src="/assets/videos/promocion_vip.mp4" type="video/mp4" />
+                Tu navegador no soporta videos HTML5.
+            </video>
         </div>
     </div>
 </section>
 
 <div class="brokers-bar">
-    <span>Exnova</span>
-    <span>IQ Option</span>
+    <span>Cursos Premium</span>
+    <span>Copytrading IA</span>
+    <span>Scripts Personalizados</span>
+    <span>Clases en Vivo</span>
 </div>
+
 <section id="about" class="about reveal">
     <header>
-        <h2>Más que un trader, un mentor.</h2>
+        <h2>Más que un trabajo, una profesión.</h2>
         <p>
-            Tras 8 años en los mercados, Enmanuel Díaz —Tu Esposo Trader— ha desarrollado un modelo cuantitativo que equilibra gestión de riesgo y lectura del flujo institucional.
+            Tras 8 años en los mercados, Enmanuel Díaz —Tu Esposo Trader— ha desarrollado un ecosistema financiero completo para que operes con confianza, sin importar tu experiencia.
         </p>
     </header>
     <div class="about__grid">
         <article>
-            <h3>Transparencia total</h3>
-            <p>Operaciones documentadas en tiempo real con bitácora accesible a la comunidad.</p>
+            <h3>Transparencia Total</h3>
+            <p>Mostramos resultados reales y operamos en vivo contigo. Sin falsas promesas, solo análisis institucional puro.</p>
         </article>
         <article>
-            <h3>Disciplina y métricas</h3>
-            <p>Seguimiento semanal de drawdown, win-rate y plan correctivo ante desvíos.</p>
+            <h3>Sistema Cuantitativo</h3>
+            <p>Usamos herramientas avanzadas para leer el mercado y maximizar la rentabilidad de las señales.</p>
         </article>
         <article>
-            <h3>Formación integral</h3>
-            <p>Sesiones educativas en análisis técnico, macroeconomía y psicotrading.</p>
+            <h3>Comunidad y Mentoría</h3>
+            <p>Soporte continuo, análisis compartidos y respuestas directas a tus dudas en el canal VIP.</p>
         </article>
     </div>
 </section>
+
 <section id="benefits" class="benefits reveal">
   <header>
-    <h2>Beneficios de la Academia</h2>
-    <p>Potencia tu trading con herramientas exclusivas, soporte constante y retos semanales diseñados para crecer juntos.</p>
+    <h2>Ecosistema de Beneficios VIP (Todo Incluido)</h2>
+    <p>Al unirte hoy a los 100 cupos gratuitos, obtienes acceso de por vida a todas nuestras herramientas.</p>
   </header>
   <div class="benefits__grid">
     <article class="benefits__item">
-      <h3>Indicador de Reversiones</h3>
-      <p>
-        Detecta giros de tendencia con un algoritmo propio que combina patrones y momentum para alertarte justo antes del cambio de dirección.
-      </p>
-      <p>
-        Recibe señales claras para entrar o salir de operaciones con confianza, maximizando ganancias y limitando el riesgo.
-      </p>
+      <h3>📚 Cursos y Academia</h3>
+      <p>Desde cero hasta experto. Aprende acción del precio, estructura de mercado y psicología del trading.</p>
     </article>
     <article class="benefits__item">
-      <h3>Super Bot IA</h3>
-      <p>
-        Nuestro bot analiza miles de datos en tiempo real, identifica escenarios de alta probabilidad y ejecuta las operaciones que configures.
-      </p>
-      <p>
-        Se adapta a tu estrategia, gestiona el riesgo y te mantiene informado con alertas y métricas actualizadas.
-      </p>
+      <h3>🤖 Copytrading Automático</h3>
+      <p>Conecta tu cuenta y deja que nuestra Inteligencia Artificial copie las operaciones institucionales 24/7 sin que muevas un dedo.</p>
     </article>
     <article class="benefits__item">
-      <h3>Señales en Vivo</h3>
-      <p>
-        Alertas en tiempo real validadas por el equipo y la IA, con una tasa de acierto superior al 90&nbsp;% para aprovechar oportunidades inmediatas.
-      </p>
-      <p>
-        Configura avisos personalizados y accede al análisis detrás de cada operación para aprender mientras operas.
-      </p>
+      <h3>💻 Scripts Propios</h3>
+      <p>Te damos nuestros indicadores y scripts exclusivos diseñados para plataformas líderes, mejorando tus puntos de entrada.</p>
     </article>
     <article class="benefits__item">
-      <h3>Torneos Semanales</h3>
-      <p>
-        Compite cada semana con capital virtual, demuestra tu rendimiento y gana premios de hasta $1000 sin arriesgar tu dinero.
-      </p>
-      <p>
-        Mejora tus habilidades en un entorno controlado, comparte tácticas con otros alumnos y recibe feedback experto.
-      </p>
-    </article>
-    <article class="benefits__item">
-      <h3>Clases Personalizadas</h3>
-      <p>
-        Sesiones 1:1 con el Top 1 de opciones binarias en Venezuela, enfocadas en estrategias avanzadas y gestión emocional.
-      </p>
-      <p>
-        Incluye materiales exclusivos, soporte continuo y planes accionables para acelerar tus resultados.
-      </p>
+      <h3>🔴 Clases y Sesiones en Vivo</h3>
+      <p>Opera en directo con nosotros, resuelve dudas y comprende el "por qué" de cada movimiento en tiempo real.</p>
     </article>
   </div>
 </section>
 
 <section id="social-links" class="social-links reveal">
   <header>
-    <h2>Conecta con la comunidad</h2>
-    <p>Únete a los canales oficiales para formación, señales y networking.</p>
+    <h2>Conecta con la Comunidad VIP</h2>
+    <p>Únete a los canales oficiales para recibir las alertas gratuitas y material educativo.</p>
   </header>
-  <div class="social-links__grid" id="social-links-grid"></div>
+  <div class="social-links__grid" id="social-links-grid">
+        <a href="https://t.me/tuesposotrader" class="social-card telegram glow-hover" target="_blank" rel="noopener" data-sveltekit-reload>
+            <span class="social-card__icon">📱</span>
+            <h3>Telegram VIP</h3>
+            <p>Señales, análisis y torneos semanales</p>
+        </a>
+        <a href="https://www.tiktok.com/@tuesposotrader" class="social-card tiktok glow-hover" target="_blank" rel="noopener" data-sveltekit-reload>
+            <span class="social-card__icon">🎵</span>
+            <h3>TikTok</h3>
+            <p>Tips rápidos, humor trader y psicotrading en 60s</p>
+        </a>
+        <a href="https://www.youtube.com/@TuEsposoTrader" class="social-card youtube glow-hover" target="_blank" rel="noopener" data-sveltekit-reload>
+            <span class="social-card__icon">▶️</span>
+            <h3>YouTube</h3>
+            <p>Clases magistrales, estrategias completas y análisis</p>
+        </a>
+        <a href="https://instagram.com/tuesposotrader" class="social-card instagram glow-hover" target="_blank" rel="noopener" data-sveltekit-reload>
+            <span class="social-card__icon">📸</span>
+            <h3>Instagram</h3>
+            <p>Lifestyle, motivación y el día a día del trading</p>
+        </a>
+  </div>
 </section>
+
 <section class="benefits reveal" id="testimonios">
   <header>
     <h2>Traders trust us</h2>
