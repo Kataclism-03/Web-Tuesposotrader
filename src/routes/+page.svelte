@@ -36,11 +36,18 @@
         // Base: random between 82-87 for first visit, keeps growing after
         let base = stored >= 82 ? stored : (82 + Math.floor(Math.random() * 6));
 
-        // Advance counter based on time elapsed since last visit (1 per ~8 min, max +5)
+        // Advance counter based on time elapsed since last visit
         if (storedTs > 0) {
-            const minutesElapsed = Math.floor((now - storedTs) / 60000);
-            const bump = Math.min(Math.floor(minutesElapsed / 8), 5);
-            base = Math.min(base + bump, 99);
+            const hoursElapsed = (now - storedTs) / (1000 * 60 * 60);
+            if (hoursElapsed >= 12) {
+                // Credibility Reset: 12+ hours passed, drop back to 82-87
+                base = 82 + Math.floor(Math.random() * 6);
+            } else {
+                // Less than 12 hours: bump up slightly (1 per ~8 min, max +5)
+                const minutesElapsed = Math.floor((now - storedTs) / 60000);
+                const bump = Math.min(Math.floor(minutesElapsed / 8), 5);
+                base = Math.min(base + bump, 99);
+            }
         }
 
         claimedSpots = base;
