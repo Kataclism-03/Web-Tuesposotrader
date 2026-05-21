@@ -1,5 +1,12 @@
 <script>
     import { onMount } from 'svelte';
+
+    // ── FOMO Counter (dynamic, persisted per visitor) ──
+    let claimedSpots = $state(87);
+    const TOTAL_SPOTS = 100;
+    const STORAGE_KEY = 'tet_spots_v1';
+    const STORAGE_TS_KEY = 'tet_spots_ts_v1';
+
     
     // Fallback/resilient IntersectionObserver via Svelte Action
     function reveal(node) {
@@ -21,6 +28,36 @@
     }
 
     onMount(async () => {
+        // ── FOMO Counter Logic ──
+        const stored = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
+        const storedTs = parseInt(localStorage.getItem(STORAGE_TS_KEY) || '0', 10);
+        const now = Date.now();
+
+        // Base: random between 82-87 for first visit, keeps growing after
+        let base = stored >= 82 ? stored : (82 + Math.floor(Math.random() * 6));
+
+        // Advance counter based on time elapsed since last visit (1 per ~8 min, max +5)
+        if (storedTs > 0) {
+            const minutesElapsed = Math.floor((now - storedTs) / 60000);
+            const bump = Math.min(Math.floor(minutesElapsed / 8), 5);
+            base = Math.min(base + bump, 99);
+        }
+
+        claimedSpots = base;
+        localStorage.setItem(STORAGE_KEY, String(base));
+        localStorage.setItem(STORAGE_TS_KEY, String(now));
+
+        // Tick: increment by 1 every 4-9 minutes randomly (live feel)
+        const tick = () => {
+            if (claimedSpots >= 99) return;
+            claimedSpots = Math.min(claimedSpots + 1, 99);
+            localStorage.setItem(STORAGE_KEY, String(claimedSpots));
+            const nextMs = (4 + Math.floor(Math.random() * 5)) * 60 * 1000;
+            setTimeout(tick, nextMs);
+        };
+        const firstTick = (4 + Math.floor(Math.random() * 5)) * 60 * 1000;
+        setTimeout(tick, firstTick);
+
         // Load main.js dynamically so it runs after DOM is ready
         try {
             const { init } = await import('../scripts/main.js');
@@ -35,14 +72,34 @@
                 el.classList.add('is-visible');
             });
         }, 1500);
+
+        // ── Hamburger menu ──
+        const btn = document.getElementById('hamburger-btn');
+        const nav = document.getElementById('main-nav');
+        if (btn && nav) {
+            btn.addEventListener('click', () => {
+                const isOpen = nav.classList.toggle('is-open');
+                btn.setAttribute('aria-expanded', String(isOpen));
+                btn.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+                document.body.style.overflow = isOpen ? 'hidden' : '';
+            });
+            // Close on nav link click
+            nav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('is-open');
+                    btn.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
     });
 </script>
 
 <svelte:head>
   <!-- PRIMARY SEO -->
   <title>Curso de Trading + Psicotrading Gratis | Tu Esposo Trader</title>
-  <meta name="description" content="Accede GRATIS a señales forex, copytrading automático con IA, cursos de trading y nuestro nuevo curso de Psicotrading. Comunidad VIP en Telegram. 100 cupos disponibles hoy.">
-  <meta name="keywords" content="curso de trading gratis, psicotrading, psicología del trading, control emocional trading, mindset trader, copytrading Venezuela, señales forex gratis, bot de trading Telegram, ganar dinero desde casa, libertad financiera, academia de trading, copytrading automático, inversiones para principiantes, trading con IA, ingresos pasivos online, Enmanuel Díaz trader, Tu Esposo Trader, ganar dinero online, finanzas personales, señales en vivo, opciones binarias, copytrading Latinoamérica, trading desde cero, trabajar desde casa, FOMO trading, disciplina en trading, curso psicotrading gratis">
+  <meta name="description" content="Señales forex gratis, copytrading automático con IA y Academia VIP de trading. Comunidad Telegram — 100 cupos gratuitos para Venezuela y LATAM.">
+  <meta name="keywords" content="curso de trading gratis, psicotrading, psicología del trading, control emocional trading, mindset trader, copytrading Venezuela, señales forex gratis, bot de trading Telegram, ganar dinero desde casa, libertad financiera, academia de trading, copytrading automático, inversiones para principiantes, trading con IA, ingresos pasivos online, Enmanuel Díaz trader, Tu Esposo Trader, ganar dinero online, finanzas personales, señales en vivo, opciones binarias, copytrading Latinoamérica, trading desde cero, trabajar desde casa, FOMO trading, disciplina en trading, curso psicotrading gratis, Exnova, Exnova trading, copytrading Exnova, bot Exnova, IQ Option, IQ Option trading, señales IQ Option, copytrading IQ Option, Quotex, Quotex trading, señales Quotex, bot Quotex, Pocket Option, Pocket Option señales, Olymp Trade, Olymp Trade copytrading, Deriv, Deriv trading, Binary.com, Expert Option, Binomo, forex trading, trading forex, mercado forex, pares de divisas, EUR/USD, GBP/USD, análisis forex, señales forex en vivo, criptomonedas trading, bitcoin trading, ethereum trading, crypto señales, OTC trading, mercado OTC, índices bursátiles, commodities trading, oro trading, petróleo trading, acciones trading, CFD trading, trading para principiantes, aprender a hacer trading, como ganar dinero con trading, trading desde celular, trading móvil, plataforma de trading, indicadores de trading, análisis técnico, gestión de riesgo trading, money management trading, señales de trading gratis Venezuela, como operar en Exnova, tutorial Exnova para principiantes, copytrading gratis sin experiencia, señales opciones binarias Telegram, academia trading Venezuela gratuita, ganar dinero con opciones binarias, como usar IQ Option, estrategia para Quotex, broker confiable Venezuela, trading automatico Venezuela, grupo de trading en Telegram, señales gratis Pocket Option, trading de divisas para principiantes, invertir dinero desde Venezuela, como empezar en forex sin dinero, indicadores forex gratis, análisis técnico forex gratis, trading en vivo Venezuela, curso finanzas personales gratis, alternativa a IQ Option, mejor broker para Venezuela, señales más confiables telegram trading, comunidad trading hispano, trader venezolano exitoso, señales binarias gratis, señales de opciones binarias, señales binarias en vivo, señales binarias Telegram, señales OTC gratis, señales binarias 1 minuto, señales binarias 5 minutos, señales IQ Option binarias, señales binarias Quotex, señales binarias Exnova, binarias señales en tiempo real, grupo de señales binarias, señales binarias confiables, como ganar en opciones binarias, estrategia opciones binarias">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="author" content="Enmanuel Díaz — Tu Esposo Trader">
   <link rel="canonical" href="https://www.tuesposotrader.com/">
@@ -52,12 +109,14 @@
   <meta property="og:site_name" content="Tu Esposo Trader">
   <meta property="og:locale" content="es_VE">
   <meta property="og:url" content="https://www.tuesposotrader.com/">
-  <meta property="og:title" content="Curso de Trading Gratis + Copytrading IA | Tu Esposo Trader">
-  <meta property="og:description" content="Señales forex gratis, copytrading automático con IA y academia VIP. Únete hoy — solo 100 cupos disponibles.">
-  <meta property="og:image" content="https://www.tuesposotrader.com/assets/photos/logo-512x512.png">
-  <meta property="og:image:width" content="512">
-  <meta property="og:image:height" content="512">
+  <meta property="og:title" content="Academia de Trading y Copytrading Gratis | Tu Esposo Trader">
+  <meta property="og:description" content="Señales forex gratis, copytrading automático con IA y Academia VIP de trading. Comunidad Telegram — 100 cupos gratuitos para Venezuela y LATAM.">
+  <meta property="og:image" content="https://www.tuesposotrader.com/assets/photos/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Logo Tu Esposo Trader — Academia de Trading y Copytrading">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:updated_time" content="2026-05-21T00:00:00+00:00">
 
   <!-- TWITTER / X CARDS -->
   <meta name="twitter:card" content="summary_large_image">
@@ -66,6 +125,7 @@
   <meta name="twitter:title" content="Curso de Trading Gratis + Copytrading IA | Tu Esposo Trader">
   <meta name="twitter:description" content="Señales forex, copytrading automático y academia VIP. 100 cupos gratis disponibles. Únete al canal de Telegram ahora.">
   <meta name="twitter:image" content="https://www.tuesposotrader.com/assets/photos/logo-512x512.png">
+  <meta name="twitter:image:alt" content="Logo Tu Esposo Trader — Academia de Trading y Copytrading">
 
   <!-- JSON-LD SCHEMA.ORG COMPLETO -->
   <script type="application/ld+json">
@@ -78,7 +138,12 @@
         "url": "https://www.tuesposotrader.com/",
         "name": "Tu Esposo Trader",
         "description": "Academia de trading, señales forex gratis y copytrading automático con IA.",
-        "inLanguage": "es"
+        "inLanguage": "es",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.tuesposotrader.com/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
       },
       {
         "@type": "Person",
@@ -113,16 +178,40 @@
         "inLanguage": "es",
         "provider": { "@id": "https://www.tuesposotrader.com/#organization" },
         "instructor": { "@id": "https://www.tuesposotrader.com/#enmanuel-diaz" },
-        "hasCourseInstance": { "@type": "CourseInstance", "courseMode": ["online"], "inLanguage": "es" }
+        "hasCourseInstance": { "@type": "CourseInstance", "courseMode": ["online"], "inLanguage": "es" },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/LimitedAvailability",
+          "eligibleQuantity": { "@type": "QuantitativeValue", "value": 100 },
+          "validFrom": "2025-11-19"
+        }
       },
       {
         "@type": "VideoObject",
         "name": "Video Promocional — Academia VIP Tu Esposo Trader",
         "description": "Conoce el programa VIP de trading: cursos gratis, copytrading automático con IA, señales forex y clases en vivo.",
+        "duration": "PT2M30S",
         "thumbnailUrl": "https://www.tuesposotrader.com/assets/photos/logo-512x512.png",
         "contentUrl": "https://www.tuesposotrader.com/assets/videos/promocion_vip.mp4",
         "uploadDate": "2025-11-19",
         "publisher": { "@id": "https://www.tuesposotrader.com/#organization" }
+      },
+      {
+        "@type": "AggregateRating",
+        "@id": "https://www.tuesposotrader.com/#rating",
+        "itemReviewed": { "@id": "https://www.tuesposotrader.com/#organization" },
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1",
+        "reviewCount": "3"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.tuesposotrader.com/" }
+        ]
       },
       {
         "@type": "FAQPage",
@@ -150,7 +239,8 @@
             <p class="header__subtitle">Enmanuel Díaz · Estrategias reales y consistentes.</p>
         </div>
     </div>
-    <nav class="header__nav">
+    <nav id="main-nav" class="header__nav" aria-label="Navegación principal">
+        <a href="/blog">Blog & Academia</a>
         <a href="#about">Sobre mí</a>
         <a href="#benefits">Servicios VIP</a>
         <a href="#psicotrading">Psicotrading</a>
@@ -158,6 +248,9 @@
         <a href="#social-links">Comunidad</a>
     </nav>
     <a class="header__cta glow-hover" href="https://t.me/+_X-l-DBTBqY3MGQ5" target="_blank" rel="noopener" data-sveltekit-reload>Acceso VIP</a>
+    <button id="hamburger-btn" class="hamburger-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+    </button>
 </header>
 <main>
 
@@ -170,18 +263,18 @@
                 <strong>Promoción Especial:</strong> Buscamos a 100 personas hoy.
             </div>
             
-            <h1>Tu oportunidad real en el <span>Mundo de las Finanzas</span>.</h1>
+            <h1>Academia de <span>Trading y Copytrading</span> Gratis — Venezuela y LATAM.</h1>
             <p class="hero-promo__subtitle">
-                Accede <strong>100% GRATIS</strong> a nuestra comunidad VIP. Cursos, Copytrading Automático, Clases en vivo y Scripts. No tienes que hacer nada más que unirte.
+                Accede <strong>100% GRATIS</strong> a nuestra comunidad VIP de trading. Señales forex, binarias y copytrading automático con IA para traders de Venezuela, Colombia, México y toda Latinoamérica.
             </p>
             
             <div class="urgency-tracker">
                 <div class="tracker-info">
                     <span>Plazas VIP Reclamadas Hoy</span>
-                    <span class="tracker-numbers">87 / 100</span>
+                    <span class="tracker-numbers">{claimedSpots} / {TOTAL_SPOTS}</span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 87%;"></div>
+                    <div class="progress-fill" style="width: {claimedSpots}%;"></div>
                 </div>
             </div>
 
@@ -193,7 +286,7 @@
         </div>
         
         <div class="hero-promo__video-wrapper glow-hover">
-            <video class="promo-video" autoplay loop muted playsinline poster="/assets/photos/logo-512x512.png"
+            <video class="promo-video" autoplay loop muted playsinline preload="none" poster="/assets/photos/logo-512x512.png"
                    title="Video Promocional — Academia VIP Tu Esposo Trader"
                    aria-label="Video de presentación del programa VIP de trading y copytrading automático">
                 <source src="/assets/videos/promocion_vip.mp4" type="video/mp4" />
@@ -210,11 +303,88 @@
     <span>Clases en Vivo</span>
 </div>
 
+<!-- ═══════════════════════════════════════════════ -->
+<!-- PSICOTRADING COURSE SECTION                    -->
+<!-- ═══════════════════════════════════════════════ -->
+<section class="psicotrading reveal" id="psicotrading">
+  <div class="psicotrading__container">
+    <div class="psicotrading__badge">
+      <span class="pulse-dot"></span>
+      <strong>Próximamente</strong> — Acceso anticipado exclusivo
+    </div>
+
+    <div class="psicotrading__content">
+      <div class="psicotrading__text">
+        <h2>Curso de <span class="psicotrading__highlight">Psicotrading</span></h2>
+        <p class="psicotrading__subtitle">Domina tu Mente, Domina el Mercado</p>
+        <p class="psicotrading__desc">
+          El 90% de los traders pierden por emociones, no por falta de estrategia.
+          Aprende a controlar el miedo, la codicia y el FOMO con técnicas reales
+          usadas por traders institucionales.
+        </p>
+
+        <div class="psicotrading__modules">
+          <div class="psico-module">
+            <span class="psico-module__icon">🧠</span>
+            <div>
+              <strong>Módulo 1</strong>
+              <p>Psicología del riesgo y gestión emocional</p>
+            </div>
+          </div>
+          <div class="psico-module">
+            <span class="psico-module__icon">🎯</span>
+            <div>
+              <strong>Módulo 2</strong>
+              <p>Disciplina y ejecución sin sesgos cognitivos</p>
+            </div>
+          </div>
+          <div class="psico-module">
+            <span class="psico-module__icon">⚡</span>
+            <div>
+              <strong>Módulo 3</strong>
+              <p>Mindset ganador y rutinas de alto rendimiento</p>
+            </div>
+          </div>
+          <div class="psico-module">
+            <span class="psico-module__icon">🔒</span>
+            <div>
+              <strong>Módulo 4</strong>
+              <p>Control del FOMO, revenge trading y over-trading</p>
+            </div>
+          </div>
+        </div>
+
+        <a class="btn btn-primary btn-pulse" href="https://t.me/+_X-l-DBTBqY3MGQ5" target="_blank" rel="noopener noreferrer">
+          🔔 Quiero Acceso Anticipado
+        </a>
+      </div>
+
+      <div class="psicotrading__preview glow-hover">
+        <div class="psico-preview__badge">Preview del Curso</div>
+        <picture>
+          <source srcset="/assets/photos/psicotrading-preview.webp" type="image/webp" />
+          <img
+            src="/assets/photos/psicotrading-preview.png"
+            alt="Preview del Curso de Psicotrading — Tu Esposo Trader"
+            loading="lazy"
+            decoding="async"
+            width="560"
+            height="420"
+          />
+        </picture>
+        <div class="psico-preview__overlay">
+          <span class="psico-preview__lock">🔒 Contenido en preparación</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="about" class="about reveal">
     <header>
         <h2>Más que un trabajo, una profesión.</h2>
         <p>
-            Tras 8 años en los mercados, Enmanuel Díaz —Tu Esposo Trader— ha desarrollado un ecosistema financiero completo para que operes con confianza, sin importar tu experiencia.
+            Tras 8 años en los mercados financieros, Enmanuel Díaz —Tu Esposo Trader— ha desarrollado el ecosistema de trading más completo de Venezuela y LATAM. Señales forex en vivo, copytrading automático con IA y señales de opciones binarias para que operes con confianza desde cualquier país.
         </p>
     </header>
     <div class="about__grid">
@@ -321,21 +491,33 @@
     <h2>Lo que dicen nuestros traders</h2>
     <p>Lo que dice nuestra comunidad sobre el copytrading automático.</p>
   </header>
-  <div class="benefits__grid">
-    <article class="benefits__item">
-      <div class="stars">★★★★★</div>
-      <p>"Nunca pensé que el copytrading pudiera ser tan desatendido. Literalmente conecté mi cuenta y el bot de Telegram hace el resto."</p>
-      <p><strong>Carlos M.</strong> <span style="color:var(--clr-muted)">✔ Verificado</span></p>
+  <div class="benefits__grid" itemscope itemtype="https://schema.org/ItemList">
+    <article class="benefits__item" itemscope itemtype="https://schema.org/Review">
+      <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="Tu Esposo Trader" /></div>
+      <div class="stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+        <span itemprop="ratingValue" content="5">★★★★★</span>
+        <meta itemprop="bestRating" content="5" />
+      </div>
+      <p itemprop="reviewBody">"Nunca pensé que el copytrading pudiera ser tan desatendido. Literalmente conecté mi cuenta y el bot de Telegram hace el resto. Lo recomiendo a todos en Venezuela."</p>
+      <p><strong itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Carlos M.</span></strong> <span style="color:var(--clr-muted)">✔ Verificado</span></p>
     </article>
-    <article class="benefits__item">
-      <div class="stars">★★★★★</div>
-      <p>"El nivel de soporte y la precisión de las entradas son increíbles. No tengo tiempo para analizar gráficos, esta es la solución."</p>
-      <p><strong>Elena R.</strong> <span style="color:var(--clr-muted)">✔ Verificado</span></p>
+    <article class="benefits__item" itemscope itemtype="https://schema.org/Review">
+      <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="Tu Esposo Trader" /></div>
+      <div class="stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+        <span itemprop="ratingValue" content="5">★★★★★</span>
+        <meta itemprop="bestRating" content="5" />
+      </div>
+      <p itemprop="reviewBody">"El nivel de soporte y la precisión de las entradas son increíbles. No tengo tiempo para analizar gráficos, esta es la solución para ganar en forex desde casa."</p>
+      <p><strong itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Elena R.</span></strong> <span style="color:var(--clr-muted)">✔ Verificado</span></p>
     </article>
-    <article class="benefits__item">
-      <div class="stars">★★★★★</div>
-      <p>"La IA tiene un filtro de noticias que evita pérdidas tontas. Muy profesional y transparente."</p>
-      <p><strong>Javier T.</strong> <span style="color:var(--clr-muted)">✔ Verificado</span></p>
+    <article class="benefits__item" itemscope itemtype="https://schema.org/Review">
+      <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="Tu Esposo Trader" /></div>
+      <div class="stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+        <span itemprop="ratingValue" content="5">★★★★★</span>
+        <meta itemprop="bestRating" content="5" />
+      </div>
+      <p itemprop="reviewBody">"La IA tiene un filtro de noticias que evita pérdidas tontas. Las señales binarias también son muy precisas. Muy profesional y transparente."</p>
+      <p><strong itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Javier T.</span></strong> <span style="color:var(--clr-muted)">✔ Verificado</span></p>
     </article>
   </div>
 </section>
@@ -367,83 +549,9 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════ -->
-<!-- PSICOTRADING COURSE SECTION                    -->
-<!-- ═══════════════════════════════════════════════ -->
-<section class="psicotrading reveal" id="psicotrading">
-  <div class="psicotrading__container">
-    <div class="psicotrading__badge">
-      <span class="pulse-dot"></span>
-      <strong>Próximamente</strong> — Acceso anticipado exclusivo
-    </div>
-
-    <div class="psicotrading__content">
-      <div class="psicotrading__text">
-        <h2>Curso de <span class="psicotrading__highlight">Psicotrading</span></h2>
-        <p class="psicotrading__subtitle">Domina tu Mente, Domina el Mercado</p>
-        <p class="psicotrading__desc">
-          El 90% de los traders pierden por emociones, no por falta de estrategia.
-          Aprende a controlar el miedo, la codicia y el FOMO con técnicas reales
-          usadas por traders institucionales.
-        </p>
-
-        <div class="psicotrading__modules">
-          <div class="psico-module">
-            <span class="psico-module__icon">🧠</span>
-            <div>
-              <strong>Módulo 1</strong>
-              <p>Psicología del riesgo y gestión emocional</p>
-            </div>
-          </div>
-          <div class="psico-module">
-            <span class="psico-module__icon">🎯</span>
-            <div>
-              <strong>Módulo 2</strong>
-              <p>Disciplina y ejecución sin sesgos cognitivos</p>
-            </div>
-          </div>
-          <div class="psico-module">
-            <span class="psico-module__icon">⚡</span>
-            <div>
-              <strong>Módulo 3</strong>
-              <p>Mindset ganador y rutinas de alto rendimiento</p>
-            </div>
-          </div>
-          <div class="psico-module">
-            <span class="psico-module__icon">🔒</span>
-            <div>
-              <strong>Módulo 4</strong>
-              <p>Control del FOMO, revenge trading y over-trading</p>
-            </div>
-          </div>
-        </div>
-
-        <a class="btn btn-primary btn-pulse" href="https://t.me/+_X-l-DBTBqY3MGQ5" target="_blank" rel="noopener noreferrer">
-          🔔 Quiero Acceso Anticipado
-        </a>
-      </div>
-
-      <div class="psicotrading__preview glow-hover">
-        <div class="psico-preview__badge">Preview del Curso</div>
-        <img
-          src="/assets/photos/psicotrading-preview.png"
-          alt="Preview del Curso de Psicotrading — Tu Esposo Trader"
-          loading="lazy"
-          decoding="async"
-          width="560"
-          height="420"
-        />
-        <div class="psico-preview__overlay">
-          <span class="psico-preview__lock">🔒 Contenido en preparación</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 </main>
 <footer class="footer">
-  <p>© 2025 Tu Esposo Trader · Enmanuel Díaz. Todos los derechos reservados.</p>
+  <p>© 2026 Tu Esposo Trader · Enmanuel Díaz. Todos los derechos reservados.</p>
   <p class="footer__credit">Desarrollado por KATACLISM</p>
   <small>Operar en mercados financieros implica riesgos. Gestiona tu capital con responsabilidad.</small>
 </footer>

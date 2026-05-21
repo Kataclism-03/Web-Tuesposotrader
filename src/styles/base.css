@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+/* Self-hosted Inter font — eliminates Google Fonts CDN latency */
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/inter/800.css';
 
 :root {
     --clr-bg: #0B0E14;
@@ -24,6 +29,7 @@ body {
     color: var(--clr-text);
     line-height: 1.6;
     min-height: 100vh;
+    overflow-x: hidden; /* prevent horizontal scroll from absolute elements */
 }
 
 h1, h2, h3, h4 {
@@ -93,7 +99,7 @@ img, video {
     width: 600px;
     height: 600px;
     background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, rgba(11, 14, 20, 0) 70%);
-    filter: blur(80px);
+    filter: blur(40px);
     border-radius: 50%;
     z-index: -1;
     pointer-events: none;
@@ -101,9 +107,10 @@ img, video {
 
 @media (max-width: 768px) {
     .bg-glow {
-        width: 300px;
-        height: 300px;
-        top: 5%;
-        right: -10%;
+        width: 200px;
+        height: 200px;
+        top: 2%;
+        right: 0;
+        opacity: 0.5;
     }
 }

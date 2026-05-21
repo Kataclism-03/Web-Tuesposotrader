@@ -10,7 +10,7 @@ const photoAssets = import.meta.glob("../assets/photos/*.{avif,gif,jpeg,jpg,png,
 });
 
 // Background images via glob (Vite can statically analyze this)
-const bgModules = import.meta.glob("../assets/photos/background-*.jpg", { eager: true, import: "default", query: "?url" });
+const bgModules = import.meta.glob("../assets/photos/background-*.jpg", { eager: true, import: "default" });
 const backgroundImages = Object.values(bgModules);
 
 let mediaLightboxInstance = null;
@@ -301,12 +301,10 @@ async function initVideoGallery() {
         // Detectar automáticamente todos los videos en la carpeta de assets usando Vite
         const modules = import.meta.glob("../assets/videos/*.{mp4,webm}", {
             eager: true,
-            import: "default",
-            query: "?url"
+            import: "default"
         });
         const discovered = Object.values(modules || {});
 
-        console.debug("initVideoGallery: discovered video files ->", discovered.length);
 
         const videos = discovered
             .map((url, index) => ({ src: url, poster: "", title: `Video Tu Esposo Trader ${String(index + 1).padStart(2, "0")}` }))
@@ -345,17 +343,13 @@ async function initVideoGallery() {
             })
             .filter((item) => item !== null);
 
-        console.debug("initVideoGallery: slides created ->", slides.length);
         slides.forEach(({ video }, idx) => {
             video.addEventListener("error", (ev) => {
                 console.error(`initVideoGallery: video load error [${idx}]`, video.currentSrc || video.src, ev);
             });
 
             video.addEventListener("loadedmetadata", () => {
-                console.debug(
-                    `initVideoGallery: video[${idx}] metadata -> duration=${video.duration.toFixed(2)}s, ` +
-                        `w=${video.videoWidth}, h=${video.videoHeight}`
-                );
+                // metadata loaded
             });
         });
 
@@ -376,20 +370,8 @@ async function initVideoGallery() {
             const gapRaw = styles.gap || styles.columnGap || "0px";
             const gap = Number.parseFloat(gapRaw) || 0;
 
-            console.debug("initVideoGallery: metrics ->", {
-                slides: slides.length,
-                viewportScrollWidth,
-                viewportClientWidth,
-                trackScrollWidth,
-                trackClientWidth,
-                cardWidth,
-                gap
-            });
-
             if (viewportScrollWidth <= viewportClientWidth && slides.length > 1) {
-                // Forzar mínimo en track para permitir scroll horizontal
                 const needed = slides.length * (cardWidth + gap) + 4;
-                console.debug("initVideoGallery: forcing track minWidth ->", needed);
                 track.style.minWidth = `${needed}px`;
             }
         };
@@ -487,12 +469,10 @@ async function initVideoGallery() {
         };
 
         prevButton?.addEventListener("click", () => {
-            console.debug("initVideoGallery: prev click ->", currentIndex);
             scrollToIndex(currentIndex - itemsPerView, { resetOthers: true });
         });
 
         nextButton?.addEventListener("click", () => {
-            console.debug("initVideoGallery: next click ->", currentIndex);
             scrollToIndex(currentIndex + itemsPerView, { resetOthers: true });
         });
 

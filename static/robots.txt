@@ -3,5 +3,7 @@ Allow: /
 
 # Bloquear rutas internas de SvelteKit
 Disallow: /_app/
+Disallow: /build/
+Crawl-delay: 2
 
 Sitemap: https://www.tuesposotrader.com/sitemap.xml
