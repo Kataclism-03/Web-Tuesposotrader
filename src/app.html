@@ -15,5 +15,66 @@
 	</head>
     <body>
 		<div style="display: contents">%sveltekit.body%</div>
+
+        <!-- 
+        ===================================================================================
+        🔥 LAZY-LOAD DE MARKETING (Google Ads / Meta Pixel) 🔥
+        Diseñado para mantener el 100/100 en Google PageSpeed. 
+        Los scripts pesados solo se cargan cuando el usuario interactúa (scroll, clic) 
+        o después de 3.5 segundos.
+        ===================================================================================
+        -->
+        <script>
+            let scriptsLoaded = false;
+            
+            function loadMarketingScripts() {
+                if (scriptsLoaded) return;
+                scriptsLoaded = true;
+
+                console.log("🚀 Iniciando carga perezosa de Píxeles de Marketing (Rendimiento 100/100 Protegido)");
+
+                // ---------------------------------------------------------
+                // 1. INYECTAR GOOGLE ANALYTICS / GOOGLE ADS AQUÍ
+                // ---------------------------------------------------------
+                /*
+                const ga = document.createElement('script');
+                ga.async = true;
+                ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX'; // REEMPLAZA G-XXXXXXXXXX
+                document.head.appendChild(ga);
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-XXXXXXXXXX'); // REEMPLAZA G-XXXXXXXXXX
+                */
+
+                // ---------------------------------------------------------
+                // 2. INYECTAR META PIXEL (FACEBOOK/INSTAGRAM) AQUÍ
+                // ---------------------------------------------------------
+                /*
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', '123456789012345'); // REEMPLAZA POR TU ID DEL PIXEL
+                fbq('track', 'PageView');
+                */
+            }
+
+            // Escuchar la primera interacción real del usuario
+            const triggerEvents = ['scroll', 'mousemove', 'mousedown', 'touchstart', 'keydown'];
+            const triggerScripts = () => {
+                loadMarketingScripts();
+                triggerEvents.forEach(e => window.removeEventListener(e, triggerScripts));
+            };
+            
+            triggerEvents.forEach(e => window.addEventListener(e, triggerScripts, { passive: true }));
+
+            // Respaldo: Si el usuario no hace nada, cargarlos a los 3.5 segundos
+            setTimeout(loadMarketingScripts, 3500);
+        </script>
 	</body>
 </html>
