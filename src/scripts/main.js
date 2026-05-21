@@ -1,12 +1,7 @@
 import { registerRevealElements } from "./ui-effects.js";
-import telegramSvg from 'simple-icons/icons/telegram.svg?raw';
-import tiktokSvg from 'simple-icons/icons/tiktok.svg?raw';
-import youtubeSvg from 'simple-icons/icons/youtube.svg?raw';
-import instagramSvg from 'simple-icons/icons/instagram.svg?raw';
 import galleryEntries from "../data/gallery.json";
-import socialLinks from "../data/social-links.json";
 
-// Logo asset left in `src/assets/photos` by the user — resolve via Vite
+// Logo asset resolve via Vite
 const logoUrl = new URL('../assets/photos/logo-512x512.png', import.meta.url).href;
 
 const photoAssets = import.meta.glob("../assets/photos/*.{avif,gif,jpeg,jpg,png,webp}", {
@@ -14,14 +9,9 @@ const photoAssets = import.meta.glob("../assets/photos/*.{avif,gif,jpeg,jpg,png,
     import: "default"
 });
 
-
-
-const backgroundImages = Array.from({ length: 25 }, (_, index) =>
-    new URL(
-        `../assets/photos/background-${String(index + 1).padStart(2, "0")}.jpg`,
-        import.meta.url
-    ).href
-);
+// Background images via glob (Vite can statically analyze this)
+const bgModules = import.meta.glob("../assets/photos/background-*.jpg", { eager: true, import: "default", query: "?url" });
+const backgroundImages = Object.values(bgModules);
 
 let mediaLightboxInstance = null;
 
@@ -92,46 +82,7 @@ function getMediaLightbox() {
 
 
 
-async function initSocialLinks() {
-    const grid = document.getElementById("social-links-grid");
-    if (!grid) {
-        return;
-    }
-
-    const getIcon = (type) => {
-        switch (type) {
-            case "telegram": {
-                return telegramSvg;
-            }
-            case "tiktok": {
-                return tiktokSvg;
-            }
-            case "youtube": {
-                return youtubeSvg;
-            }
-            case "instagram": {
-                return instagramSvg;
-            }
-            default:
-                return `<svg width="28" height="28" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>`;
-        }
-    };
-
-    grid.innerHTML = socialLinks
-        .map(
-            (link) => `
-            <a class="social-card social-card--${link.type} glow-hover reveal" href="${link.url}" target="_blank" rel="noopener">
-                <span class="social-card__icon">${getIcon(link.type)}</span>
-                <div class="social-card__body">
-                    <strong>${link.label}</strong>
-                    <p>${link.description}</p>
-                </div>
-            </a>`
-        )
-        .join("");
-
-    registerRevealElements(grid);
-}
+// Social links are now hardcoded in +page.svelte — no dynamic rendering needed
 
 async function initMediaGallery() {
     const track = document.getElementById("media-gallery-track");
@@ -725,7 +676,6 @@ export async function init() {
         console.warn('No se pudo asignar el logo automáticamente:', e);
     }
 
-    await initSocialLinks();
     initBackgroundRotation();
     registerRevealElements();
 }

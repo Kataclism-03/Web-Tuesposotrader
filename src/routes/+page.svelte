@@ -39,40 +39,99 @@
 </script>
 
 <svelte:head>
-  <title>Tu Esposo Trader | Academia de Trading, Finanzas y Copytrading</title>
-  <meta name="description" content="Únete a la academia VIP de Tu Esposo Trader. Aprende finanzas, accede a cursos gratis, clases en vivo, copytrading automático y obtén la libertad financiera que buscas.">
-  <meta name="keywords" content="trading, finanzas, trabajos remotos, ganar dinero online, cursos de trading gratis, academia de trading, copytrading automático, señales en vivo, bot de trading, Tu Esposo Trader, opciones binarias">
-  
-  <meta property="og:title" content="Tu Esposo Trader | Academia de Trading y Finanzas VIP">
-  <meta property="og:description" content="Accede gratis hoy. Aprende a operar con nuestros cursos y copia nuestras alertas en automático.">
+  <!-- PRIMARY SEO -->
+  <title>Curso de Trading Gratis + Copytrading IA | Tu Esposo Trader</title>
+  <meta name="description" content="Accede GRATIS a señales forex, copytrading automático con IA y cursos de trading desde cero. Comunidad VIP en Telegram. 100 cupos disponibles hoy.">
+  <meta name="keywords" content="curso de trading gratis, copytrading Venezuela, señales forex gratis, bot de trading Telegram, ganar dinero desde casa, libertad financiera, academia de trading, copytrading automático, inversiones para principiantes, trading con IA, ingresos pasivos online, Enmanuel Díaz trader, Tu Esposo Trader, ganar dinero online, finanzas personales, señales en vivo, opciones binarias, copytrading Latinoamérica, trading desde cero, trabajar desde casa">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="author" content="Enmanuel Díaz — Tu Esposo Trader">
+  <link rel="canonical" href="https://www.tuesposotrader.com/">
+
+  <!-- OPEN GRAPH -->
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tu Esposo Trader">
+  <meta property="og:locale" content="es_VE">
   <meta property="og:url" content="https://www.tuesposotrader.com/">
+  <meta property="og:title" content="Curso de Trading Gratis + Copytrading IA | Tu Esposo Trader">
+  <meta property="og:description" content="Señales forex gratis, copytrading automático con IA y academia VIP. Únete hoy — solo 100 cupos disponibles.">
   <meta property="og:image" content="https://www.tuesposotrader.com/assets/photos/logo-512x512.png">
-  
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:image:alt" content="Logo Tu Esposo Trader — Academia de Trading y Copytrading">
+
+  <!-- TWITTER / X CARDS -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Tu Esposo Trader | Oportunidad VIP">
-  <meta name="twitter:description" content="Acceso gratuito a nuestra academia de trading y copytrading.">
-  
-  <!-- SEO JSON-LD: Organization, EducationalOrganization & JobPosting -->
+  <meta name="twitter:site" content="@tuesposotrader">
+  <meta name="twitter:creator" content="@tuesposotrader">
+  <meta name="twitter:title" content="Curso de Trading Gratis + Copytrading IA | Tu Esposo Trader">
+  <meta name="twitter:description" content="Señales forex, copytrading automático y academia VIP. 100 cupos gratis disponibles. Únete al canal de Telegram ahora.">
+  <meta name="twitter:image" content="https://www.tuesposotrader.com/assets/photos/logo-512x512.png">
+
+  <!-- JSON-LD SCHEMA.ORG COMPLETO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "EducationalOrganization",
-        "name": "Academia Tu Esposo Trader",
-        "description": "Cursos de trading, finanzas, y herramientas automáticas para generar ingresos.",
+        "@type": "WebSite",
+        "@id": "https://www.tuesposotrader.com/#website",
         "url": "https://www.tuesposotrader.com/",
-        "logo": "https://www.tuesposotrader.com/assets/photos/logo-512x512.png"
+        "name": "Tu Esposo Trader",
+        "description": "Academia de trading, señales forex gratis y copytrading automático con IA.",
+        "inLanguage": "es"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.tuesposotrader.com/#enmanuel-diaz",
+        "name": "Enmanuel Díaz",
+        "alternateName": "Tu Esposo Trader",
+        "description": "Trader profesional con 8 años de experiencia. Fundador de la Academia Tu Esposo Trader.",
+        "url": "https://www.tuesposotrader.com/",
+        "sameAs": [
+          "https://t.me/+_X-l-DBTBqY3MGQ5",
+          "https://www.tiktok.com/@tuesposotrader",
+          "https://youtube.com/@tuesposotraderoficial",
+          "https://www.instagram.com/tuesposotraderoficial"
+        ],
+        "jobTitle": "Trader Profesional & Educador Financiero"
+      },
+      {
+        "@type": "EducationalOrganization",
+        "@id": "https://www.tuesposotrader.com/#organization",
+        "name": "Academia Tu Esposo Trader",
+        "url": "https://www.tuesposotrader.com/",
+        "logo": { "@type": "ImageObject", "url": "https://www.tuesposotrader.com/assets/photos/logo-512x512.png", "width": 512, "height": 512 },
+        "description": "Academia VIP de trading, finanzas y copytrading automático con IA. Cursos gratis, señales forex y comunidad en Telegram.",
+        "founder": { "@id": "https://www.tuesposotrader.com/#enmanuel-diaz" }
       },
       {
         "@type": "Course",
-        "name": "Programa VIP de Trading y Finanzas",
-        "description": "Aprende a operar en los mercados financieros, utiliza scripts y señales en vivo. Únete gratis a la promoción de 100 cupos.",
-        "provider": {
-          "@type": "EducationalOrganization",
-          "name": "Tu Esposo Trader"
-        }
+        "name": "Programa VIP de Trading, Finanzas y Copytrading",
+        "description": "Aprende trading desde cero. Incluye señales forex en vivo, copytrading automático con IA, scripts exclusivos y clases en directo. Acceso 100% gratuito para los primeros 100 cupos.",
+        "url": "https://www.tuesposotrader.com/",
+        "isAccessibleForFree": true,
+        "inLanguage": "es",
+        "provider": { "@id": "https://www.tuesposotrader.com/#organization" },
+        "instructor": { "@id": "https://www.tuesposotrader.com/#enmanuel-diaz" },
+        "hasCourseInstance": { "@type": "CourseInstance", "courseMode": ["online"], "inLanguage": "es" }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Video Promocional — Academia VIP Tu Esposo Trader",
+        "description": "Conoce el programa VIP de trading: cursos gratis, copytrading automático con IA, señales forex y clases en vivo.",
+        "thumbnailUrl": "https://www.tuesposotrader.com/assets/photos/logo-512x512.png",
+        "contentUrl": "https://www.tuesposotrader.com/assets/videos/promocion_vip.mp4",
+        "uploadDate": "2025-11-19",
+        "publisher": { "@id": "https://www.tuesposotrader.com/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "¿Es gratis unirse a la academia de Tu Esposo Trader?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los primeros 100 cupos tienen acceso 100% gratuito a todos los beneficios VIP: cursos de trading, señales forex en vivo, copytrading automático, scripts exclusivos y clases en directo." } },
+          { "@type": "Question", "name": "¿Qué es el copytrading automático?", "acceptedAnswer": { "@type": "Answer", "text": "El copytrading automático es un sistema donde nuestra IA copia las operaciones de trading institucional directamente a tu cuenta, sin que tengas que hacer nada. El bot de Telegram gestiona todo 24/7." } },
+          { "@type": "Question", "name": "¿Puedo ganar dinero desde casa con el copytrading?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El copytrading es ideal para generar ingresos pasivos desde casa. El sistema funciona automáticamente 24/7 mientras tú te dedicas a tus actividades diarias." } },
+          { "@type": "Question", "name": "¿Necesito experiencia previa para aprender trading?", "acceptedAnswer": { "@type": "Answer", "text": "No. Nuestros cursos van desde cero hasta nivel avanzado. Enmanuel Díaz explica cada concepto de forma simple con 8 años de experiencia en los mercados." } }
+        ]
       }
     ]
   }
@@ -83,7 +142,7 @@
 <div id="page-wrapper" class="page-wrapper">
 <header class="header">
     <div class="header__brand">
-        <img class="header__logo" src="" alt="Tu Esposo Trader" loading="lazy" decoding="async" />
+        <img class="header__logo" src="/assets/photos/logo-512x512.png" alt="Tu Esposo Trader — Academia de Trading y Copytrading" loading="eager" decoding="async" width="40" height="40" />
         <div>
             <p class="header__title">Tu Esposo Trader</p>
             <p class="header__subtitle">Enmanuel Díaz · Estrategias reales y consistentes.</p>
@@ -95,7 +154,7 @@
         <a href="#testimonios">Testimonios</a>
         <a href="#social-links">Comunidad</a>
     </nav>
-    <a class="header__cta glow-hover" href="https://t.me/tuesposotrader" target="_blank" rel="noopener" data-sveltekit-reload>Acceso VIP</a>
+    <a class="header__cta glow-hover" href="https://t.me/+_X-l-DBTBqY3MGQ5" target="_blank" rel="noopener" data-sveltekit-reload>Acceso VIP</a>
 </header>
 <main>
 
@@ -124,14 +183,16 @@
             </div>
 
             <div class="hero__actions">
-                <a class="btn btn-primary btn-pulse" href="https://t.me/tuesposotrader" target="_blank" rel="noopener" data-sveltekit-reload>
+                <a class="btn btn-primary btn-pulse" href="https://t.me/+_X-l-DBTBqY3MGQ5" target="_blank" rel="noopener" data-sveltekit-reload>
                     Reclamar Acceso Gratis
                 </a>
             </div>
         </div>
         
         <div class="hero-promo__video-wrapper glow-hover">
-            <video class="promo-video" autoplay loop muted playsinline poster="/assets/photos/logo-512x512.png">
+            <video class="promo-video" autoplay loop muted playsinline poster="/assets/photos/logo-512x512.png"
+                   title="Video Promocional — Academia VIP Tu Esposo Trader"
+                   aria-label="Video de presentación del programa VIP de trading y copytrading automático">
                 <source src="/assets/videos/promocion_vip.mp4" type="video/mp4" />
                 Tu navegador no soporta videos HTML5.
             </video>
@@ -199,33 +260,62 @@
     <h2>Conecta con la Comunidad VIP</h2>
     <p>Únete a los canales oficiales para recibir las alertas gratuitas y material educativo.</p>
   </header>
-  <div class="social-links__grid" id="social-links-grid">
-        <a href="https://t.me/tuesposotrader" class="social-card telegram glow-hover" target="_blank" rel="noopener" data-sveltekit-reload>
-            <span class="social-card__icon">📱</span>
-            <h3>Telegram VIP</h3>
-            <p>Señales, análisis y torneos semanales</p>
-        </a>
-        <a href="https://www.tiktok.com/@tuesposotrader" class="social-card tiktok glow-hover" target="_blank" rel="noopener" data-sveltekit-reload>
-            <span class="social-card__icon">🎵</span>
-            <h3>TikTok</h3>
-            <p>Tips rápidos, humor trader y psicotrading en 60s</p>
-        </a>
-        <a href="https://www.youtube.com/@TuEsposoTrader" class="social-card youtube glow-hover" target="_blank" rel="noopener" data-sveltekit-reload>
-            <span class="social-card__icon">▶️</span>
-            <h3>YouTube</h3>
-            <p>Clases magistrales, estrategias completas y análisis</p>
-        </a>
-        <a href="https://instagram.com/tuesposotrader" class="social-card instagram glow-hover" target="_blank" rel="noopener" data-sveltekit-reload>
-            <span class="social-card__icon">📸</span>
-            <h3>Instagram</h3>
-            <p>Lifestyle, motivación y el día a día del trading</p>
-        </a>
+  <div class="social-links__grid">
+
+    <a class="social-card social-card--telegram glow-hover reveal"
+       href="https://t.me/+_X-l-DBTBqY3MGQ5"
+       target="_blank" rel="noopener noreferrer">
+      <span class="social-card__platform-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      </span>
+      <div class="social-card__body">
+        <strong>Telegram VIP</strong>
+        <p>Señales, análisis y acceso gratuito al grupo oficial.</p>
+      </div>
+    </a>
+
+    <a class="social-card social-card--tiktok glow-hover reveal"
+       href="https://www.tiktok.com/@tuesposotrader?_r=1&_t=ZN-91ZXtcXDFZb"
+       target="_blank" rel="noopener noreferrer">
+      <span class="social-card__platform-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+      </span>
+      <div class="social-card__body">
+        <strong>TikTok</strong>
+        <p>Tips rápidos de trading y psicología financiera en 60s.</p>
+      </div>
+    </a>
+
+    <a class="social-card social-card--youtube glow-hover reveal"
+       href="https://youtube.com/@tuesposotraderoficial?si=FFVDgHCzc08U9ulB"
+       target="_blank" rel="noopener noreferrer">
+      <span class="social-card__platform-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </span>
+      <div class="social-card__body">
+        <strong>YouTube</strong>
+        <p>Lives semanales, clases y análisis en profundidad.</p>
+      </div>
+    </a>
+
+    <a class="social-card social-card--instagram glow-hover reveal"
+       href="https://www.instagram.com/tuesposotraderoficial?igsh=ZzI2cjRyODhjdGpl"
+       target="_blank" rel="noopener noreferrer">
+      <span class="social-card__platform-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+      </span>
+      <div class="social-card__body">
+        <strong>Instagram</strong>
+        <p>Highlights, lifestyle y motivación del mundo trader.</p>
+      </div>
+    </a>
+
   </div>
 </section>
 
 <section class="benefits reveal" id="testimonios">
   <header>
-    <h2>Traders trust us</h2>
+    <h2>Lo que dicen nuestros traders</h2>
     <p>Lo que dice nuestra comunidad sobre el copytrading automático.</p>
   </header>
   <div class="benefits__grid">

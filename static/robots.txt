@@ -1,3 +1,7 @@
-# allow crawling everything by default
 User-agent: *
-Disallow:
+Allow: /
+
+# Bloquear rutas internas de SvelteKit
+Disallow: /_app/
+
+Sitemap: https://www.tuesposotrader.com/sitemap.xml
