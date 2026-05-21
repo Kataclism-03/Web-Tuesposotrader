@@ -40,9 +40,9 @@
 
 <svelte:head>
   <!-- PRIMARY SEO -->
-  <title>Curso de Trading Gratis + Copytrading IA | Tu Esposo Trader</title>
-  <meta name="description" content="Accede GRATIS a señales forex, copytrading automático con IA y cursos de trading desde cero. Comunidad VIP en Telegram. 100 cupos disponibles hoy.">
-  <meta name="keywords" content="curso de trading gratis, copytrading Venezuela, señales forex gratis, bot de trading Telegram, ganar dinero desde casa, libertad financiera, academia de trading, copytrading automático, inversiones para principiantes, trading con IA, ingresos pasivos online, Enmanuel Díaz trader, Tu Esposo Trader, ganar dinero online, finanzas personales, señales en vivo, opciones binarias, copytrading Latinoamérica, trading desde cero, trabajar desde casa">
+  <title>Curso de Trading + Psicotrading Gratis | Tu Esposo Trader</title>
+  <meta name="description" content="Accede GRATIS a señales forex, copytrading automático con IA, cursos de trading y nuestro nuevo curso de Psicotrading. Comunidad VIP en Telegram. 100 cupos disponibles hoy.">
+  <meta name="keywords" content="curso de trading gratis, psicotrading, psicología del trading, control emocional trading, mindset trader, copytrading Venezuela, señales forex gratis, bot de trading Telegram, ganar dinero desde casa, libertad financiera, academia de trading, copytrading automático, inversiones para principiantes, trading con IA, ingresos pasivos online, Enmanuel Díaz trader, Tu Esposo Trader, ganar dinero online, finanzas personales, señales en vivo, opciones binarias, copytrading Latinoamérica, trading desde cero, trabajar desde casa, FOMO trading, disciplina en trading, curso psicotrading gratis">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="author" content="Enmanuel Díaz — Tu Esposo Trader">
   <link rel="canonical" href="https://www.tuesposotrader.com/">
@@ -130,7 +130,9 @@
           { "@type": "Question", "name": "¿Es gratis unirse a la academia de Tu Esposo Trader?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Los primeros 100 cupos tienen acceso 100% gratuito a todos los beneficios VIP: cursos de trading, señales forex en vivo, copytrading automático, scripts exclusivos y clases en directo." } },
           { "@type": "Question", "name": "¿Qué es el copytrading automático?", "acceptedAnswer": { "@type": "Answer", "text": "El copytrading automático es un sistema donde nuestra IA copia las operaciones de trading institucional directamente a tu cuenta, sin que tengas que hacer nada. El bot de Telegram gestiona todo 24/7." } },
           { "@type": "Question", "name": "¿Puedo ganar dinero desde casa con el copytrading?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. El copytrading es ideal para generar ingresos pasivos desde casa. El sistema funciona automáticamente 24/7 mientras tú te dedicas a tus actividades diarias." } },
-          { "@type": "Question", "name": "¿Necesito experiencia previa para aprender trading?", "acceptedAnswer": { "@type": "Answer", "text": "No. Nuestros cursos van desde cero hasta nivel avanzado. Enmanuel Díaz explica cada concepto de forma simple con 8 años de experiencia en los mercados." } }
+          { "@type": "Question", "name": "¿Necesito experiencia previa para aprender trading?", "acceptedAnswer": { "@type": "Answer", "text": "No. Nuestros cursos van desde cero hasta nivel avanzado. Enmanuel Díaz explica cada concepto de forma simple con 8 años de experiencia en los mercados." } },
+          { "@type": "Question", "name": "¿Qué es el psicotrading?", "acceptedAnswer": { "@type": "Answer", "text": "El psicotrading es la disciplina que estudia cómo las emociones afectan las decisiones de trading. Aprender a controlar el miedo, la codicia y el FOMO es clave para ser un trader rentable. Nuestro curso de psicotrading te da herramientas reales para dominar tu mentalidad en el mercado." } },
+          { "@type": "Question", "name": "¿Cuándo sale el curso de psicotrading?", "acceptedAnswer": { "@type": "Answer", "text": "El curso de psicotrading de Tu Esposo Trader está próximamente disponible. Únete a nuestra comunidad VIP en Telegram para obtener acceso anticipado exclusivo y ser el primero en saber cuando se lance." } }
         ]
       }
     ]
@@ -151,6 +153,7 @@
     <nav class="header__nav">
         <a href="#about">Sobre mí</a>
         <a href="#benefits">Servicios VIP</a>
+        <a href="#psicotrading">Psicotrading</a>
         <a href="#testimonios">Testimonios</a>
         <a href="#social-links">Comunidad</a>
     </nav>
@@ -363,6 +366,81 @@
     </article>
   </div>
 </section>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- PSICOTRADING COURSE SECTION                    -->
+<!-- ═══════════════════════════════════════════════ -->
+<section class="psicotrading reveal" id="psicotrading">
+  <div class="psicotrading__container">
+    <div class="psicotrading__badge">
+      <span class="pulse-dot"></span>
+      <strong>Próximamente</strong> — Acceso anticipado exclusivo
+    </div>
+
+    <div class="psicotrading__content">
+      <div class="psicotrading__text">
+        <h2>Curso de <span class="psicotrading__highlight">Psicotrading</span></h2>
+        <p class="psicotrading__subtitle">Domina tu Mente, Domina el Mercado</p>
+        <p class="psicotrading__desc">
+          El 90% de los traders pierden por emociones, no por falta de estrategia.
+          Aprende a controlar el miedo, la codicia y el FOMO con técnicas reales
+          usadas por traders institucionales.
+        </p>
+
+        <div class="psicotrading__modules">
+          <div class="psico-module">
+            <span class="psico-module__icon">🧠</span>
+            <div>
+              <strong>Módulo 1</strong>
+              <p>Psicología del riesgo y gestión emocional</p>
+            </div>
+          </div>
+          <div class="psico-module">
+            <span class="psico-module__icon">🎯</span>
+            <div>
+              <strong>Módulo 2</strong>
+              <p>Disciplina y ejecución sin sesgos cognitivos</p>
+            </div>
+          </div>
+          <div class="psico-module">
+            <span class="psico-module__icon">⚡</span>
+            <div>
+              <strong>Módulo 3</strong>
+              <p>Mindset ganador y rutinas de alto rendimiento</p>
+            </div>
+          </div>
+          <div class="psico-module">
+            <span class="psico-module__icon">🔒</span>
+            <div>
+              <strong>Módulo 4</strong>
+              <p>Control del FOMO, revenge trading y over-trading</p>
+            </div>
+          </div>
+        </div>
+
+        <a class="btn btn-primary btn-pulse" href="https://t.me/+_X-l-DBTBqY3MGQ5" target="_blank" rel="noopener noreferrer">
+          🔔 Quiero Acceso Anticipado
+        </a>
+      </div>
+
+      <div class="psicotrading__preview glow-hover">
+        <div class="psico-preview__badge">Preview del Curso</div>
+        <img
+          src="/assets/photos/psicotrading-preview.png"
+          alt="Preview del Curso de Psicotrading — Tu Esposo Trader"
+          loading="lazy"
+          decoding="async"
+          width="560"
+          height="420"
+        />
+        <div class="psico-preview__overlay">
+          <span class="psico-preview__lock">🔒 Contenido en preparación</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
 <footer class="footer">
   <p>© 2025 Tu Esposo Trader · Enmanuel Díaz. Todos los derechos reservados.</p>
