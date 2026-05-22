@@ -8,6 +8,7 @@ y envía una notificación a Telegram con oportunidades de backlinks.
 import os
 import json
 import re
+import time
 import unicodedata
 import requests
 from datetime import datetime
@@ -20,8 +21,9 @@ TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
 
 BLOG_DIR = Path("src/routes/blog")
-GEMINI_MODEL = "gemini-2.0-flash"
-GEMINI_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent?key={GEMINI_API_KEY}"
+
+
+
 
 
 def get_existing_slugs():
@@ -38,44 +40,72 @@ def get_existing_slugs():
 
 def slugify(text):
     """Convierte un título en un slug URL-safe."""
-    # Normalizar caracteres unicode (á → a, ñ → n, etc.)
     text = unicodedata.normalize('NFKD', text)
     text = text.encode('ascii', 'ignore').decode('ascii')
     text = text.lower().strip()
-    # Remover caracteres especiales excepto guiones y espacios
     text = re.sub(r'[^\w\s-]', '', text)
-    # Reemplazar espacios y guiones bajos por guiones
     text = re.sub(r'[\s_]+', '-', text)
-    # Limpiar guiones múltiples
     text = re.sub(r'-+', '-', text)
     text = text.strip('-')
     return text
 
+GEMINI_MODELS = [
+    "gemini-2.0-flash",
+    "gemini-1.5-flash",
+    "gemini-2.0-flash-lite",
+]
+
 
 def call_gemini(system_prompt, user_prompt):
-    """Llama a la API de Gemini y retorna el texto de respuesta."""
-    payload = {
-        "contents": [
-            {"role": "user", "parts": [{"text": user_prompt}]}
-        ],
-        "systemInstruction": {
-            "parts": [{"text": system_prompt}]
-        },
-        "generationConfig": {
-            "temperature": 0.7,
-            "maxOutputTokens": 8192
-        }
-    }
+    """Llama a la API de Gemini con reintentos automáticos y modelos de respaldo."""
+    last_error = None
 
-    try:
-        response = requests.post(GEMINI_URL, json=payload, timeout=90)
-        response.raise_for_status()
-        data = response.json()
-        return data["candidates"][0]["content"]["parts"][0]["text"]
-    except requests.exceptions.RequestException as e:
-        raise RuntimeError(f"❌ Error al llamar a Gemini API: {e}")
-    except (KeyError, IndexError) as e:
-        raise RuntimeError(f"❌ Respuesta inesperada de Gemini: {e}")
+    for model in GEMINI_MODELS:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
+        payload = {
+            "contents": [
+                {"role": "user", "parts": [{"text": user_prompt}]}
+            ],
+            "systemInstruction": {
+                "parts": [{"text": system_prompt}]
+            },
+            "generationConfig": {
+                "temperature": 0.7,
+                "maxOutputTokens": 8192
+            }
+        }
+
+        # Intentar hasta 3 veces por modelo con espera exponencial
+        for attempt in range(3):
+            try:
+                print(f"   🔄 Intentando con modelo: {model} (intento {attempt + 1}/3)")
+                response = requests.post(url, json=payload, timeout=120)
+
+                if response.status_code == 429:
+                    wait_time = (attempt + 1) * 15  # 15s, 30s, 45s
+                    print(f"   ⏳ Rate limit (429). Esperando {wait_time}s antes de reintentar...")
+                    time.sleep(wait_time)
+                    continue
+
+                response.raise_for_status()
+                data = response.json()
+                result = data["candidates"][0]["content"]["parts"][0]["text"]
+                print(f"   ✅ Respuesta recibida de {model}")
+                return result
+
+            except requests.exceptions.RequestException as e:
+                last_error = e
+                if "429" not in str(e):
+                    # Si no es rate limit, no tiene sentido reintentar
+                    print(f"   ❌ Error con {model}: {e}")
+                    break
+                continue
+            except (KeyError, IndexError) as e:
+                raise RuntimeError(f"❌ Respuesta inesperada de Gemini ({model}): {e}")
+
+        print(f"   ⚠️ Modelo {model} agotó sus intentos, probando siguiente modelo...")
+
+    raise RuntimeError(f"❌ Todos los modelos de Gemini fallaron. Último error: {last_error}")
 
 
 def extract_title(markdown_content):
