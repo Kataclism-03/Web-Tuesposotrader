@@ -1,0 +1,17 @@
+name: Test Actions
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/test-actions.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar que Actions funciona
+        run: |
+          echo "✅ GitHub Actions funciona correctamente!"
+          echo "📅 Fecha: $(date)"
+          echo "🖥️ Runner: $(uname -a)"
