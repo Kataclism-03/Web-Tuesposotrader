@@ -1,0 +1,48 @@
+name: 🤖 SEO Blog Agent
+
+on:
+  # Ejecutar automáticamente cada 3 días a las 9:00 AM hora Venezuela (UTC-4 = 13:00 UTC)
+  schedule:
+    - cron: '0 13 */3 * *'
+  # Permitir ejecución manual desde la pestaña Actions
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: 🐍 Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 📦 Instalar dependencias
+        run: pip install requests
+
+      - name: 🤖 Ejecutar Agente SEO
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python .github/scripts/seo_agent.py
+
+      - name: 📤 Commit y Push del nuevo artículo
+        run: |
+          git config user.name "SEO Agent Bot"
+          git config user.email "bot@tuesposotrader.com"
+          git add src/routes/blog/
+          if git diff --cached --quiet; then
+            echo "⚠️ No hay cambios para commitear"
+          else
+            TITLE=$(git diff --cached --name-only | head -1 | sed 's|src/routes/blog/||' | sed 's|/+page.md||')
+            git commit -m "feat(blog): nuevo artículo — $TITLE"
+            git push
+            echo "✅ Artículo publicado y pusheado a GitHub"
+            echo "☁️ Cloudflare Pages desplegará automáticamente"
+          fi
