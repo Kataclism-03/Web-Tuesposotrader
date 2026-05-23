@@ -599,9 +599,10 @@
     margin-top: 2px;
 }
 
-.psico-module strong {
+.psico-module__label {
     display: block;
     font-size: 0.9rem;
+    font-weight: 700;
     color: #FFB800;
     margin-bottom: 0.2rem;
 }

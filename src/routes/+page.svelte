@@ -109,7 +109,7 @@
   <meta name="keywords" content="curso de trading gratis, psicotrading, copytrading Venezuela, señales opciones binarias, academia de trading">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="author" content="Enmanuel Díaz — Tu Esposo Trader">
-  <link rel="canonical" href="https://www.tuesposotrader.com/">
+  <link rel="canonical" href="https://tuesposotrader.com/">
 
   <!-- OPEN GRAPH -->
   <meta property="og:type" content="website">
@@ -334,21 +334,21 @@
           <div class="psico-module">
             <span class="psico-module__icon">🧠</span>
             <div>
-              <strong>Módulo 1</strong>
+              <span class="psico-module__label">Módulo 1</span>
               <p>Psicología del riesgo y gestión emocional</p>
             </div>
           </div>
           <div class="psico-module">
             <span class="psico-module__icon">🎯</span>
             <div>
-              <strong>Módulo 2</strong>
+              <span class="psico-module__label">Módulo 2</span>
               <p>Disciplina y ejecución sin sesgos cognitivos</p>
             </div>
           </div>
           <div class="psico-module">
             <span class="psico-module__icon">⚡</span>
             <div>
-              <strong>Módulo 3</strong>
+              <span class="psico-module__label">Módulo 3</span>
               <p>Mindset ganador y rutinas de alto rendimiento</p>
             </div>
           </div>
