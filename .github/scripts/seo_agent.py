@@ -171,11 +171,54 @@ La fecha de hoy es: {today}."""
     return call_gemini(system_prompt, user_prompt)
 
 
+def search_real_forums(article_title):
+    """Busca hilos reales en foros usando Google Search (scraping ligero)."""
+    forums_found = []
+    search_queries = [
+        f'"{article_title}" site:reddit.com OR site:quora.com OR site:rankia.com',
+        f'{article_title} foro site:reddit.com OR site:es.quora.com',
+        f'{article_title} experiencias opiniones',
+    ]
+
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+    }
+
+    for query in search_queries:
+        try:
+            url = f"https://www.google.com/search?q={requests.utils.quote(query)}&hl=es&num=5"
+            response = requests.get(url, headers=headers, timeout=15)
+            if response.status_code == 200:
+                # Extraer URLs de los resultados de Google
+                import re as regex
+                urls = regex.findall(r'https?://(?:www\.)?(?:reddit\.com|quora\.com|es\.quora\.com|rankia\.com)[^\s"&<>]+', response.text)
+                for u in urls:
+                    clean_url = u.split('&')[0].split('"')[0]
+                    if clean_url not in forums_found and '/search' not in clean_url:
+                        forums_found.append(clean_url)
+        except requests.exceptions.RequestException:
+            continue
+
+    return forums_found[:5]  # Máximo 5 URLs
+
+
 def generate_forum_response(article_title, article_url):
-    """Genera una respuesta para foros + sugerencias de búsqueda para encontrar hilos relevantes."""
+    """Genera una respuesta para foros + busca hilos reales donde publicarla."""
+    # Paso 1: Buscar foros reales
+    print("   🔍 Buscando hilos reales en foros...")
+    real_forums = search_real_forums(article_title)
+
+    if real_forums:
+        forums_text = "\n".join(f"- {url}" for url in real_forums)
+        print(f"   ✅ Encontrados {len(real_forums)} hilos reales")
+    else:
+        forums_text = "(No se encontraron hilos específicos. Usa las búsquedas sugeridas abajo.)"
+        print("   ⚠️ No se encontraron hilos específicos, generando búsquedas sugeridas")
+
+    # Paso 2: Generar respuesta con Gemini
     system_prompt = """Eres un experto en trading y finanzas personales que participa en foros online. 
 
-Tu tarea es generar DOS cosas:
+Tu tarea es generar TRES partes:
 
 PARTE 1 - RESPUESTA PARA FORO:
 - Entre 80-150 palabras
@@ -186,17 +229,21 @@ PARTE 1 - RESPUESTA PARA FORO:
 - Español neutro latinoamericano
 - NO usar emojis
 
-PARTE 2 - BÚSQUEDAS SUGERIDAS:
-- Genera exactamente 3 búsquedas de Google que el usuario puede copiar y pegar para encontrar hilos de foros donde la respuesta sería relevante
-- Usa operadores como site:reddit.com, site:es.quora.com, site:rankia.com
-- Enfócate en foros en español
+PARTE 2 - HILOS REALES ENCONTRADOS:
+Se te proporcionará una lista de URLs reales de foros. Inclúyelas tal cual bajo el encabezado "HILOS ENCONTRADOS".
 
-Separa ambas partes claramente con encabezados."""
+PARTE 3 - BÚSQUEDAS ADICIONALES:
+Genera 3 búsquedas de Google listas para copiar y pegar, usando operadores site: para encontrar más hilos relevantes.
+
+Separa las partes claramente con encabezados."""
 
     user_prompt = f"""Tema del artículo: {article_title}
 URL del artículo: {article_url}
 
-Genera la respuesta para foro y las 3 búsquedas sugeridas."""
+HILOS REALES ENCONTRADOS EN FOROS:
+{forums_text}
+
+Genera la respuesta y las secciones indicadas."""
 
     return call_gemini(system_prompt, user_prompt)
 
