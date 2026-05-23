@@ -84,8 +84,10 @@
         const btn = document.getElementById('hamburger-btn');
         const nav = document.getElementById('main-nav');
         if (btn && nav) {
+            const header = btn.closest('.header');
             btn.addEventListener('click', () => {
                 const isOpen = nav.classList.toggle('is-open');
+                if (header) header.classList.toggle('is-open', isOpen);
                 btn.setAttribute('aria-expanded', String(isOpen));
                 btn.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
                 document.body.style.overflow = isOpen ? 'hidden' : '';
@@ -94,6 +96,7 @@
             nav.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     nav.classList.remove('is-open');
+                    if (header) header.classList.remove('is-open');
                     btn.setAttribute('aria-expanded', 'false');
                     document.body.style.overflow = '';
                 });
