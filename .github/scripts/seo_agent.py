@@ -244,8 +244,46 @@ def call_gemini_with_search(system_prompt, user_prompt):
     raise RuntimeError(f"❌ Búsqueda de foros falló: {last_error}")
 
 
+def verify_url(url, keywords):
+    """Verifica que una URL existe y contiene contenido relevante."""
+    try:
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+        }
+        response = requests.get(url, headers=headers, timeout=10, allow_redirects=True)
+
+        if response.status_code != 200:
+            return False, f"HTTP {response.status_code}"
+
+        # Verificar que la página final es del mismo dominio (no redirigida a otro sitio)
+        final_url = response.url.lower()
+        original_domain = url.split('/')[2].lower()
+        final_domain = final_url.split('/')[2].lower()
+
+        if original_domain.replace('www.', '') != final_domain.replace('www.', ''):
+            return False, f"Redirige a {final_domain}"
+
+        # Verificar que el contenido tiene al menos 1 keyword relevante
+        content = response.text.lower()
+        keyword_found = any(kw.lower() in content for kw in keywords)
+
+        if not keyword_found:
+            return False, "Contenido no relacionado con trading"
+
+        return True, "OK"
+
+    except requests.exceptions.RequestException as e:
+        return False, str(e)
+
+
+def extract_urls_from_text(text):
+    """Extrae todas las URLs de un texto."""
+    url_pattern = r'https?://(?:www\.)?(?:reddit\.com|quora\.com|es\.quora\.com|rankia\.com|foro\.invertir\.com)[^\s\)\]\"\'<>,]*'
+    return re.findall(url_pattern, text)
+
+
 def generate_forum_response(article_title, article_url):
-    """Genera respuesta para foros usando Gemini con Google Search Grounding."""
+    """Genera respuesta para foros usando Gemini con Google Search Grounding + verificación de URLs."""
     print("   🔍 Buscando hilos REALES en foros con Google Search...")
 
     system_prompt = """Eres un experto en trading y SEO que busca oportunidades de backlinks en foros reales.
@@ -257,7 +295,8 @@ PARTE 1 - HILOS REALES ENCONTRADOS:
 - Proporciona las URLs REALES y completas de 3-5 hilos donde la respuesta sería relevante
 - Para cada hilo, indica brevemente de qué trata (1 línea)
 - SOLO incluye URLs que realmente existan y que encontraste en la búsqueda
-- Si no encuentras hilos exactos, busca hilos sobre temas MUY relacionados
+- NUNCA inventes o alucines URLs. Si no estás 100% seguro de que una URL existe, NO la incluyas
+- Si no encuentras hilos exactos, busca hilos sobre temas MUY relacionados (trading, inversión, forex, etc.)
 
 PARTE 2 - RESPUESTA PARA COPIAR Y PEGAR:
 - Entre 80-150 palabras
@@ -279,9 +318,48 @@ Tema: {article_title}
 URL del artículo: {article_url}
 
 Busca específicamente en: reddit.com, es.quora.com, rankia.com, foros de trading en español.
-Encuentra hilos REALES con URLs que existan de verdad."""
+Encuentra hilos REALES con URLs que existan de verdad. NO inventes URLs."""
 
-    return call_gemini_with_search(system_prompt, user_prompt)
+    raw_response = call_gemini_with_search(system_prompt, user_prompt)
+
+    # ── Verificar URLs encontradas ──
+    print("   🔎 Verificando URLs encontradas...")
+    urls = extract_urls_from_text(raw_response)
+    trading_keywords = ["trading", "trader", "forex", "inversión", "invertir", "bolsa",
+                        "mercado", "opciones", "binarias", "estrategia", "plan de trading",
+                        "riesgo", "broker", "capital", "ganancias", "copytrading"]
+
+    verified_urls = []
+    rejected_urls = []
+
+    for url in urls:
+        # Limpiar la URL
+        url = url.rstrip(')')
+        is_valid, reason = verify_url(url, trading_keywords)
+        if is_valid:
+            verified_urls.append(url)
+            print(f"      ✅ Verificada: {url}")
+        else:
+            rejected_urls.append((url, reason))
+            print(f"      ❌ Rechazada: {url} — {reason}")
+
+    # Agregar nota de verificación al response
+    verification_note = ""
+    if rejected_urls:
+        verification_note += "\n\n⚠️ URLS RECHAZADAS (no existían o no eran relevantes):\n"
+        for url, reason in rejected_urls:
+            verification_note += f"- {url} → {reason}\n"
+
+    if verified_urls:
+        verification_note += f"\n\n✅ URLS VERIFICADAS ({len(verified_urls)} de {len(urls)} pasaron la verificación):\n"
+        for url in verified_urls:
+            verification_note += f"- {url}\n"
+    else:
+        verification_note += "\n\n⚠️ Ninguna URL pasó la verificación. Usa las búsquedas de PARTE 3 para encontrar hilos manualmente."
+
+    print(f"   📊 Resultado: {len(verified_urls)}/{len(urls)} URLs verificadas")
+
+    return raw_response + verification_note
 
 
 def send_telegram(title, article_url, slug, forum_response):
