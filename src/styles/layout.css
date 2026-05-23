@@ -38,6 +38,7 @@
 .header.is-open {
     backdrop-filter: none;
     background: transparent;
+    border-bottom: none;
 }
 
 .header__brand {
@@ -715,20 +716,26 @@
         display: flex;
     }
 
+    .header.is-open {
+        height: 100vh;
+        height: 100dvh;
+        align-items: flex-start;
+    }
+
     .header__nav {
         display: none;
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
+        width: 100%;
+        height: 100%;
         background: rgba(11, 14, 20, 0.97);
         backdrop-filter: blur(12px);
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 2rem;
-        z-index: 100;
+        z-index: -1;
     }
 
     .header__nav.is-open {
