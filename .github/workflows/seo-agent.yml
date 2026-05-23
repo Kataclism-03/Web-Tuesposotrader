@@ -46,6 +46,7 @@ jobs:
           fi
           TITLE=$(git diff --cached --name-only | head -1 | sed 's|src/routes/blog/||' | sed 's|/+page.md||')
           git commit -m "feat(blog): nuevo artículo — $TITLE"
+          git pull --rebase origin main || true
           git push
           echo "✅ Artículo pusheado a GitHub"
 
