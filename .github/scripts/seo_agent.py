@@ -171,56 +171,95 @@ La fecha de hoy es: {today}."""
     return call_gemini(system_prompt, user_prompt)
 
 
-def search_real_forums(article_title):
-    """Busca hilos reales en foros usando Google Search (scraping ligero)."""
-    forums_found = []
-    search_queries = [
-        f'"{article_title}" site:reddit.com OR site:quora.com OR site:rankia.com',
-        f'{article_title} foro site:reddit.com OR site:es.quora.com',
-        f'{article_title} experiencias opiniones',
-    ]
+def call_gemini_with_search(system_prompt, user_prompt):
+    """Llama a Gemini con Google Search Grounding activado para buscar hilos reales."""
+    last_error = None
 
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
-    }
+    for model in GEMINI_MODELS:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
+        payload = {
+            "contents": [
+                {"role": "user", "parts": [{"text": user_prompt}]}
+            ],
+            "systemInstruction": {
+                "parts": [{"text": system_prompt}]
+            },
+            "tools": [
+                {"googleSearch": {}}
+            ],
+            "generationConfig": {
+                "temperature": 0.7,
+                "maxOutputTokens": 4096
+            }
+        }
 
-    for query in search_queries:
-        try:
-            url = f"https://www.google.com/search?q={requests.utils.quote(query)}&hl=es&num=5"
-            response = requests.get(url, headers=headers, timeout=15)
-            if response.status_code == 200:
-                # Extraer URLs de los resultados de Google
-                import re as regex
-                urls = regex.findall(r'https?://(?:www\.)?(?:reddit\.com|quora\.com|es\.quora\.com|rankia\.com)[^\s"&<>]+', response.text)
-                for u in urls:
-                    clean_url = u.split('&')[0].split('"')[0]
-                    if clean_url not in forums_found and '/search' not in clean_url:
-                        forums_found.append(clean_url)
-        except requests.exceptions.RequestException:
-            continue
+        for attempt in range(3):
+            try:
+                print(f"   🔄 Buscando foros con {model} + Google Search (intento {attempt + 1}/3)")
+                response = requests.post(url, json=payload, timeout=120)
 
-    return forums_found[:5]  # Máximo 5 URLs
+                if response.status_code == 429:
+                    wait_time = (attempt + 1) * 15
+                    print(f"   ⏳ Rate limit. Esperando {wait_time}s...")
+                    time.sleep(wait_time)
+                    continue
+
+                response.raise_for_status()
+                data = response.json()
+
+                # Extraer el texto de la respuesta
+                text = data["candidates"][0]["content"]["parts"][0]["text"]
+
+                # Extraer URLs reales del grounding metadata si están disponibles
+                grounding_urls = []
+                try:
+                    chunks = data["candidates"][0].get("groundingMetadata", {}).get("groundingChunks", [])
+                    for chunk in chunks:
+                        web = chunk.get("web", {})
+                        if web.get("uri"):
+                            grounding_urls.append(web["uri"])
+                except (KeyError, TypeError):
+                    pass
+
+                # Si hay URLs de grounding, agregarlas al texto
+                if grounding_urls:
+                    text += "\n\n### URLS VERIFICADAS POR GOOGLE:\n"
+                    for gu in grounding_urls:
+                        text += f"- {gu}\n"
+
+                print(f"   ✅ Búsqueda completada con {model}")
+                return text
+
+            except requests.exceptions.RequestException as e:
+                last_error = e
+                if "429" not in str(e):
+                    print(f"   ❌ Error con {model}: {e}")
+                    break
+                continue
+            except (KeyError, IndexError) as e:
+                raise RuntimeError(f"❌ Respuesta inesperada de Gemini Search ({model}): {e}")
+
+        print(f"   ⚠️ Modelo {model} agotó intentos de búsqueda...")
+
+    raise RuntimeError(f"❌ Búsqueda de foros falló: {last_error}")
 
 
 def generate_forum_response(article_title, article_url):
-    """Genera una respuesta para foros + busca hilos reales donde publicarla."""
-    # Paso 1: Buscar foros reales
-    print("   🔍 Buscando hilos reales en foros...")
-    real_forums = search_real_forums(article_title)
+    """Genera respuesta para foros usando Gemini con Google Search Grounding."""
+    print("   🔍 Buscando hilos REALES en foros con Google Search...")
 
-    if real_forums:
-        forums_text = "\n".join(f"- {url}" for url in real_forums)
-        print(f"   ✅ Encontrados {len(real_forums)} hilos reales")
-    else:
-        forums_text = "(No se encontraron hilos específicos. Usa las búsquedas sugeridas abajo.)"
-        print("   ⚠️ No se encontraron hilos específicos, generando búsquedas sugeridas")
+    system_prompt = """Eres un experto en trading y SEO que busca oportunidades de backlinks en foros reales.
 
-    # Paso 2: Generar respuesta con Gemini
-    system_prompt = """Eres un experto en trading y finanzas personales que participa en foros online. 
+Tu tarea es generar TRES partes usando búsqueda en Google:
 
-Tu tarea es generar TRES partes:
+PARTE 1 - HILOS REALES ENCONTRADOS:
+- Busca en Google hilos reales de foros (Reddit, Quora, Rankia, Foro.invertir, etc.) donde se discuta el tema del artículo
+- Proporciona las URLs REALES y completas de 3-5 hilos donde la respuesta sería relevante
+- Para cada hilo, indica brevemente de qué trata (1 línea)
+- SOLO incluye URLs que realmente existan y que encontraste en la búsqueda
+- Si no encuentras hilos exactos, busca hilos sobre temas MUY relacionados
 
-PARTE 1 - RESPUESTA PARA FORO:
+PARTE 2 - RESPUESTA PARA COPIAR Y PEGAR:
 - Entre 80-150 palabras
 - Aporta valor real PRIMERO (como si respondieras una pregunta real sobre el tema)
 - Al final, incluye de forma NATURAL el enlace al artículo como recurso adicional
@@ -229,23 +268,20 @@ PARTE 1 - RESPUESTA PARA FORO:
 - Español neutro latinoamericano
 - NO usar emojis
 
-PARTE 2 - HILOS REALES ENCONTRADOS:
-Se te proporcionará una lista de URLs reales de foros. Inclúyelas tal cual bajo el encabezado "HILOS ENCONTRADOS".
-
 PARTE 3 - BÚSQUEDAS ADICIONALES:
-Genera 3 búsquedas de Google listas para copiar y pegar, usando operadores site: para encontrar más hilos relevantes.
+- 3 búsquedas de Google con operadores site: para encontrar más hilos
 
 Separa las partes claramente con encabezados."""
 
-    user_prompt = f"""Tema del artículo: {article_title}
+    user_prompt = f"""Busca en Google hilos de foros en español sobre este tema:
+
+Tema: {article_title}
 URL del artículo: {article_url}
 
-HILOS REALES ENCONTRADOS EN FOROS:
-{forums_text}
+Busca específicamente en: reddit.com, es.quora.com, rankia.com, foros de trading en español.
+Encuentra hilos REALES con URLs que existan de verdad."""
 
-Genera la respuesta y las secciones indicadas."""
-
-    return call_gemini(system_prompt, user_prompt)
+    return call_gemini_with_search(system_prompt, user_prompt)
 
 
 def send_telegram(title, article_url, slug, forum_response):
