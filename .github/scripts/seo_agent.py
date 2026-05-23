@@ -127,9 +127,49 @@ def clean_markdown(content):
 
 
 def generate_article(existing_slugs):
-    """Genera un nuevo artículo SEO optimizado usando Gemini."""
+    """Genera un nuevo artículo SEO optimizado usando Gemini con keywords prioritarias."""
     today = datetime.now().strftime("%Y-%m-%d")
     slugs_list = "\n".join(f"- {s}" for s in existing_slugs) if existing_slugs else "- (ninguno publicado aún)"
+
+    # ── Keywords prioritarias ordenadas por impacto SEO ──
+    # El agente elegirá la primera que NO esté cubierta por artículos existentes
+    priority_keywords = [
+        # 🔴 PRIORIDAD MÁXIMA — Brokers (tráfico directo de usuarios buscando)
+        "exnova opiniones — ¿es confiable exnova para trading en 2026?",
+        "iq option opiniones — ¿es seguro operar en iq option desde latinoamérica?",
+        "quotex opiniones — review honesto de quotex para opciones binarias",
+        "exnova vs quotex — comparativa de brokers para opciones binarias",
+        "mejores plataformas de trading en venezuela 2026",
+
+        # 🔴 PRIORIDAD ALTA — Trading para principiantes
+        "cómo empezar en trading desde cero — guía para principiantes latinos",
+        "trading con poco dinero — cómo operar con 10 o 50 dólares",
+        "forex para principiantes — qué es y cómo funciona el mercado forex",
+        "curso de opciones binarias gratis — aprende a operar paso a paso",
+        "vivir del trading — ¿es posible en latinoamérica?",
+
+        # 🟡 PRIORIDAD MEDIA — Estrategias y técnicas
+        "señales forex gratis por telegram — cómo encontrar señales confiables",
+        "copytrading automático — qué es y cómo funciona el bot de copytrading",
+        "mejores indicadores para trading — RSI, MACD, Bollinger y más",
+        "trading en venezuela — cómo ganar dinero con trading desde venezuela",
+        "scalping en opciones binarias — estrategias rápidas para ganancias",
+
+        # 🟢 PRIORIDAD NORMAL — Temas complementarios
+        "errores comunes de traders principiantes y cómo evitarlos",
+        "horarios del mercado forex — cuándo operar para máxima rentabilidad",
+        "diferencia entre forex y opciones binarias — cuál es mejor",
+        "cómo leer velas japonesas — guía completa para traders",
+        "martingala en trading — ¿funciona o es una trampa?",
+        "cuentas demo para trading — las mejores plataformas para practicar gratis",
+        "trading con criptomonedas — bitcoin y altcoins para principiantes",
+        "money management en trading — gestiona tu capital como profesional",
+        "soporte y resistencia — cómo identificar niveles clave en el gráfico",
+        "noticias que mueven el mercado forex — calendario económico para traders",
+    ]
+
+    # Convertir la lista de keywords en texto
+    keywords_text = "\n".join(f"{i+1}. {kw}" for i, kw in enumerate(priority_keywords))
 
     system_prompt = """Eres un redactor SEO experto especializado en trading, opciones binarias, forex, psicotrading y copytrading para el mercado hispanoamericano (Venezuela, Colombia, México, Perú, Argentina).
 
@@ -150,21 +190,35 @@ REGLAS ESTRICTAS DE FORMATO:
    - Uso natural de negritas (**keyword**) sin sobreoptimizar
    - Tono: directo, honesto, sin humo. Como si un trader profesional venezolano le hablara a un amigo
    - Mencionar positivamente a Exnova e IQ Option como brokers confiables cuando sea natural
+   - Incluir enlaces internos al blog cuando sea relevante: [texto](https://tuesposotrader.com/blog/SLUG-DEL-ARTICULO)
    - NUNCA usar la palabra "conclusión" como título de sección final
 4. Al final del artículo, incluir exactamente este bloque CTA en Markdown:
-   [Únete a nuestro Canal de Telegram Gratis](https://t.me/+_X-l-DBTBqY3MGQ5) y empieza a transformar tu mentalidad y tu economía hoy mismo, o [Visita la Academia](/) para descubrir todos nuestros recursos educativos diseñados para el trader hispano.
+
+---
+
+**¿Listo para dar el siguiente paso?** Únete a nuestra comunidad gratuita de trading y empieza a operar con confianza:
+
+👉 [Canal de Telegram — Señales Gratis y Comunidad VIP](https://t.me/+_X-l-DBTBqY3MGQ5)
+
+👉 [Visita la Academia](https://tuesposotrader.com/) para descubrir todos nuestros recursos educativos diseñados para el trader hispano.
+
 5. NO incluir imágenes, NO incluir HTML, solo Markdown puro.
 6. NO envolver tu respuesta en bloques de código (```). Solo devuelve el contenido crudo del archivo .md.
 
 REGLA ANTI-DUPLICACIÓN CRÍTICA:
-Se te proporcionará una lista de slugs de artículos ya publicados. DEBES generar un artículo sobre un tema COMPLETAMENTE DIFERENTE a todos los existentes. El slug y tema del nuevo artículo NO puede ser igual ni similar a ninguno de la lista."""
+Se te proporcionará una lista de slugs de artículos ya publicados. DEBES generar un artículo sobre un tema COMPLETAMENTE DIFERENTE a todos los existentes."""
 
     user_prompt = f"""ARTÍCULOS YA PUBLICADOS (NO repetir estos temas):
 {slugs_list}
 
-Genera un artículo SEO original sobre un tema de trading que NO esté cubierto por ninguno de los artículos anteriores.
+KEYWORDS PRIORITARIAS (elige la PRIMERA de esta lista que NO esté cubierta por los artículos anteriores):
+{keywords_text}
 
-Ataca una keyword long-tail con intención informativa que tenga potencial de búsqueda en Venezuela, Colombia y México.
+INSTRUCCIONES:
+1. Revisa los artículos existentes
+2. Elige la keyword prioritaria de MAYOR prioridad que aún NO tiene artículo
+3. Genera un artículo SEO completo atacando esa keyword
+4. Si TODAS las keywords prioritarias ya están cubiertas, elige un tema nuevo relacionado con trading para hispanoamérica
 
 La fecha de hoy es: {today}."""
 
