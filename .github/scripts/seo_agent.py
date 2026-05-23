@@ -337,13 +337,14 @@ REGLAS:
 - Entre 80-150 palabras
 - Aporta valor real PRIMERO (como si respondieras una pregunta)
 - Al final, incluye de forma NATURAL el enlace al artículo
+- Después del enlace del artículo, agrega algo como: "Y si buscan una comunidad de trading en español con señales gratis, pasen por el Telegram: https://t.me/+_X-l-DBTBqY3MGQ5"
 - NUNCA ser spammy ni promocional
 - Tono: cercano, como un colega trader latino
 - Español neutro latinoamericano
 - NO usar emojis
 - NO incluyas encabezados ni formato markdown, solo texto plano"""
 
-    response_user = f"Tema: {article_title}\nURL del artículo: {article_url}"
+    response_user = f"Tema: {article_title}\nURL del artículo: {article_url}\nTelegram del grupo: https://t.me/+_X-l-DBTBqY3MGQ5"
 
     try:
         forum_text = call_gemini(response_prompt, response_user)
@@ -373,7 +374,9 @@ REGLAS:
     result += "🔍 BÚSQUEDAS MANUALES:\n"
     result += f'1. site:reddit.com "{article_title.split(":")[0].strip()}"\n'
     result += f'2. site:rankia.com/foros "{article_title.split(":")[0].strip()}"\n'
-    result += f'3. site:es.quora.com "{article_title.split(":")[0].strip()}"'
+    result += f'3. site:es.quora.com "{article_title.split(":")[0].strip()}"\n'
+
+    result += "\n📲 GRUPO TELEGRAM: https://t.me/+_X-l-DBTBqY3MGQ5"
 
     return result
 
