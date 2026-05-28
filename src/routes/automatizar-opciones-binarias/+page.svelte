@@ -37,7 +37,7 @@
         <a href="/">Inicio</a>
         <a href="/blog">Blog & Academia</a>
     </nav>
-    <a class="header__cta glow-hover" href="https://t.me/+MMsbQZq6tAMzYTIx" target="_blank" rel="noopener">Acceso VIP</a>
+    <a class="header__cta glow-hover" href="https://bit.ly/GrupoCopyVIP" target="_blank" rel="noopener">Acceso VIP</a>
 </header>
 <main>
 
@@ -67,7 +67,7 @@
             </div>
 
             <div class="hero__actions">
-                <a class="btn btn-primary btn-pulse" href="https://t.me/+MMsbQZq6tAMzYTIx" target="_blank" rel="noopener">
+                <a class="btn btn-primary btn-pulse" href="https://bit.ly/GrupoCopyVIP" target="_blank" rel="noopener">
                     Automatizar Mi Cuenta Gratis
                 </a>
             </div>
