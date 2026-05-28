@@ -561,6 +561,10 @@
 
 </main>
 <footer class="footer">
+  <div style="margin-bottom: 2rem; display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+    <a href="/bot-copytrading-telegram" style="color: var(--clr-primary); text-decoration: none;">Bot Copytrading Telegram</a>
+    <a href="/automatizar-opciones-binarias" style="color: var(--clr-primary); text-decoration: none;">Automatizar Opciones Binarias</a>
+  </div>
   <p>© 2026 Tu Esposo Trader · Enmanuel Díaz. Todos los derechos reservados.</p>
   <p class="footer__credit">Desarrollado por KATACLISM</p>
   <small>Operar en mercados financieros implica riesgos. Gestiona tu capital con responsabilidad.</small>
