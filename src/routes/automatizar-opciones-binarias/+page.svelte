@@ -1,3 +1,20 @@
+<script>
+    import { onMount } from 'svelte';
+    
+    function reveal(node) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    node.classList.add('is-visible');
+                    observer.unobserve(node);
+                }
+            });
+        }, { threshold: 0.1 });
+        observer.observe(node);
+        return { destroy() { observer.disconnect(); } };
+    }
+</script>
+
 <svelte:head>
   <title>Automatizar Opciones Binarias con IA | Tu Esposo Trader</title>
   <meta name="description" content="Aprende a automatizar tus operaciones de opciones binarias. Nuestro sistema gestiona el riesgo y elimina el factor emocional para una rentabilidad real.">
@@ -5,37 +22,94 @@
   <link rel="canonical" href="https://www.tuesposotrader.com/automatizar-opciones-binarias">
 </svelte:head>
 
-<section class="hero-promo reveal is-visible" style="min-height: 80vh; display: flex; align-items: center; margin-top: 5rem;">
+<section class="hero-promo reveal" use:reveal>
     <div class="bg-glow"></div>
     <div class="hero-promo__container">
-        <div class="hero-promo__content" style="max-width: 800px; margin: 0 auto; text-align: center;">
-            <div class="urgency-badge" style="margin: 0 auto 2rem auto;">
+        <div class="hero-promo__content">
+            <div class="urgency-badge">
                 <span class="pulse-dot"></span>
                 <strong>Gestión de Riesgo IA</strong> — Protege tu Capital
             </div>
             
-            <h1>Cómo <span>Automatizar</span> Opciones Binarias sin Estrés.</h1>
-            <p class="hero-promo__subtitle" style="margin-top: 1.5rem; text-align: left;">
+            <h1>Cómo <span>Automatizar</span> Opciones Binarias.</h1>
+            <p class="hero-promo__subtitle">
                 El principal enemigo del trader son las emociones. Al <strong>automatizar tus operaciones de opciones binarias</strong>, eliminas el miedo y la revancha. Nuestro sistema respeta estrictamente el Stop Loss y Take Profit diario.
             </p>
             
-            <div class="benefits__grid" style="margin: 3rem 0; text-align: left;">
-                <article class="benefits__item" style="background: rgba(255,255,255,0.05);">
-                    <h3>🧠 Adiós al Psicotrading</h3>
-                    <p>Deja que el algoritmo opere con la mente fría y matemática, replicando estrategias institucionales.</p>
+            <div class="benefits__grid" style="margin: 2rem 0; text-align: left;">
+                <article class="benefits__item" style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--clr-primary);">🧠 Adiós al Psicotrading</h3>
+                    <p style="font-size: 0.9rem;">Deja que el algoritmo opere con la mente fría y matemática, replicando estrategias probadas.</p>
                 </article>
-                <article class="benefits__item" style="background: rgba(255,255,255,0.05);">
-                    <h3>📈 Gestión Automática</h3>
-                    <p>Si se alcanza la meta o el límite de pérdida, el sistema se detiene. Tu cuenta siempre a salvo.</p>
+                <article class="benefits__item" style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--clr-primary);">📈 Gestión Automática</h3>
+                    <p style="font-size: 0.9rem;">Si se alcanza la meta o el límite de pérdida, el sistema se detiene. Tu cuenta siempre a salvo.</p>
                 </article>
             </div>
 
-            <div class="hero__actions" style="justify-content: center; flex-direction: column; align-items: center; gap: 1rem;">
+            <div class="hero__actions">
                 <a class="btn btn-primary btn-pulse" href="https://t.me/+_X-l-DBTBqY3MGQ5" target="_blank" rel="noopener">
                     Automatizar Mi Cuenta Gratis
                 </a>
-                <small style="color: var(--clr-muted);">Entra a nuestra comunidad de más de 500 traders rentables.</small>
             </div>
         </div>
+        
+        <div class="hero-promo__video-wrapper glow-hover">
+            <video class="promo-video" autoplay loop muted playsinline preload="none" poster="/assets/photos/logo-512x512.png"
+                   title="Video Promocional — Academia VIP Tu Esposo Trader">
+                <source src="/assets/videos/promocion_vip.mp4" type="video/mp4" />
+            </video>
+        </div>
+    </div>
+</section>
+
+<div class="brokers-bar">
+    <span>Trading de Alta Frecuencia</span>
+    <span>Opciones Binarias</span>
+    <span>Stop Loss Automático</span>
+    <span>Señales VIP</span>
+</div>
+
+<section class="benefits reveal" id="testimonios" use:reveal>
+  <header>
+    <h2>Casos de Éxito</h2>
+    <p>Traders que ya automatizaron sus opciones binarias.</p>
+  </header>
+  <div class="benefits__grid">
+    <article class="benefits__item">
+      <div class="stars"><span style="color:#f5b041">★★★★★</span></div>
+      <p>"Siempre quemaba cuentas por no saber detenerme. Desde que automaticé mis entradas, la IA se encarga de parar cuando toca el Stop Loss. Mi capital ha estado seguro."</p>
+      <p><strong>Carlos M.</strong> <span style="color:var(--clr-muted)">✔ Verificado</span></p>
+    </article>
+    <article class="benefits__item">
+      <div class="stars"><span style="color:#f5b041">★★★★★</span></div>
+      <p>"Poder automatizar opciones binarias era justo lo que buscaba. Trabajo todo el día y el bot opera en la sesión de Nueva York por mí con una precisión increíble."</p>
+      <p><strong>Elena R.</strong> <span style="color:var(--clr-muted)">✔ Verificado</span></p>
+    </article>
+    <article class="benefits__item">
+      <div class="stars"><span style="color:#f5b041">★★★★★</span></div>
+      <p>"Es increíble cómo el sistema evita operar en horas de alta volatilidad de noticias. La gestión de riesgo es impecable y no sufro de ansiedad por el gráfico."</p>
+      <p><strong>Javier T.</strong> <span style="color:var(--clr-muted)">✔ Verificado</span></p>
+    </article>
+  </div>
+</section>
+
+<section class="about reveal" use:reveal style="margin-bottom: 5rem;">
+    <header>
+        <h2>Preguntas Frecuentes sobre Automatización</h2>
+    </header>
+    <div class="about__grid">
+        <article>
+            <h3 style="color: var(--clr-primary);">¿Se puede automatizar IQ Option / Pocket Option?</h3>
+            <p>Sí, nuestro ecosistema está diseñado para integrarse con los principales brokers de opciones binarias de forma segura, respetando sus políticas de conexión.</p>
+        </article>
+        <article>
+            <h3 style="color: var(--clr-primary);">¿Quién controla el riesgo?</h3>
+            <p>Tú tienes el control absoluto. En el panel configuras cuánto dinero invertir por operación y cuál es tu límite máximo de ganancias o pérdidas por día.</p>
+        </article>
+        <article>
+            <h3 style="color: var(--clr-primary);">¿Qué pasa con el psicotrading?</h3>
+            <p>La automatización soluciona el 90% de los errores humanos (venganza, miedo o avaricia). El bot opera de forma puramente matemática siguiendo estrategias probadas.</p>
+        </article>
     </div>
 </section>
