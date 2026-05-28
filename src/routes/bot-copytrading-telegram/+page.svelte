@@ -22,6 +22,25 @@
   <link rel="canonical" href="https://www.tuesposotrader.com/bot-copytrading-telegram">
 </svelte:head>
 
+<div id="page-wrapper" class="page-wrapper">
+<header class="header">
+    <div class="header__brand">
+        <a href="/" style="display: flex; align-items: center; text-decoration: none; color: inherit; gap: 1rem;">
+            <img class="header__logo" src="/assets/photos/logo-512x512.png" alt="Tu Esposo Trader" width="40" height="40" />
+            <div>
+                <p class="header__title">Tu Esposo Trader</p>
+                <p class="header__subtitle">Volver al Inicio</p>
+            </div>
+        </a>
+    </div>
+    <nav id="main-nav" class="header__nav" aria-label="Navegación principal">
+        <a href="/">Inicio</a>
+        <a href="/blog">Blog & Academia</a>
+    </nav>
+    <a class="header__cta glow-hover" href="https://t.me/+_X-l-DBTBqY3MGQ5" target="_blank" rel="noopener">Acceso VIP</a>
+</header>
+<main>
+
 <section class="hero-promo reveal" use:reveal>
     <div class="bg-glow"></div>
     <div class="hero-promo__container">
@@ -113,3 +132,14 @@
         </article>
     </div>
 </section>
+
+</main>
+<footer class="footer">
+  <div style="margin-bottom: 2rem; display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+    <a href="/" style="color: var(--clr-primary); text-decoration: none;">Ir al Inicio</a>
+    <a href="/automatizar-opciones-binarias" style="color: var(--clr-primary); text-decoration: none;">Automatizar Opciones Binarias</a>
+  </div>
+  <p>© 2026 Tu Esposo Trader · Enmanuel Díaz. Todos los derechos reservados.</p>
+  <p class="footer__credit">Desarrollado por KATACLISM</p>
+</footer>
+</div>
