@@ -103,6 +103,12 @@
     transform: translateY(-1px);
 }
 
+@media (max-width: 860px) {
+    .header__cta {
+        display: none;
+    }
+}
+
 /* ============================================================
    HERO PROMO — two-column layout
    ============================================================ */
@@ -268,6 +274,23 @@
     flex-wrap: wrap;
     margin-top: 0.5rem;
 }
+
+/* ── Social Proof Micro-Copy ── */
+.hero__social-proof {
+    font-size: 0.88rem;
+    color: var(--clr-muted);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.hero__social-proof strong {
+    color: #4ade80;
+    font-weight: 700;
+}
+
 
 /* ── Video Wrapper ── */
 .hero-promo__video-wrapper {
@@ -752,5 +775,50 @@
 
     .header__nav a:hover {
         color: var(--clr-accent);
+    }
+}
+
+/* ============================================================
+   MOBILE STICKY CTA BAR
+   Only visible on mobile (max-width: 860px).
+   Slides up 1.8s after page load.
+   ============================================================ */
+.mobile-sticky-cta {
+    display: none;
+}
+
+@media (max-width: 860px) {
+    .mobile-sticky-cta {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 9998;
+        padding: 0.85rem 1.25rem calc(0.85rem + env(safe-area-inset-bottom, 0px));
+        background: linear-gradient(to top, rgba(11, 14, 20, 0.98) 80%, transparent);
+        backdrop-filter: blur(12px);
+        transform: translateY(100%);
+        transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+        pointer-events: none;
+    }
+
+    .mobile-sticky-cta.is-visible {
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .mobile-sticky-cta__btn {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 14px;
+        box-shadow: 0 8px 30px rgba(99, 102, 241, 0.45);
+    }
+
+    /* Add bottom padding to the page so footer isn't hidden behind the bar */
+    .footer {
+        padding-bottom: calc(3rem + 80px);
     }
 }

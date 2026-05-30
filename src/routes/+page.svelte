@@ -80,6 +80,12 @@
             });
         }, 1500);
 
+        // Mobile sticky CTA — slide in after 1.8s
+        setTimeout(() => {
+            const stickyCta = document.getElementById('mobile-sticky-cta');
+            if (stickyCta) stickyCta.classList.add('is-visible');
+        }, 1800);
+
         // ── Hamburger menu ──
         const btn = document.getElementById('hamburger-btn');
         const nav = document.getElementById('main-nav');
@@ -257,7 +263,7 @@
         <a href="#testimonios">Testimonios</a>
         <a href="#social-links">Comunidad</a>
     </nav>
-    <a class="header__cta glow-hover" href="https://t.me/+MMsbQZq6tAMzYTIx" target="_blank" rel="noopener" data-sveltekit-reload>Acceso VIP</a>
+    <a class="header__cta glow-hover" href="https://t.me/+MMsbQZq6tAMzYTIx" target="_blank" rel="noopener" data-sveltekit-reload>🔥 Quiero Acceso Gratis</a>
     <button id="hamburger-btn" class="hamburger-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
         <span></span><span></span><span></span>
     </button>
@@ -288,15 +294,16 @@
                 </div>
             </div>
 
+            <p class="hero__social-proof">🟢 <strong>+400 traders</strong> ya copian señales automáticamente — únete hoy gratis.</p>
             <div class="hero__actions">
                 <a class="btn btn-primary btn-pulse" href="https://t.me/+MMsbQZq6tAMzYTIx" target="_blank" rel="noopener" data-sveltekit-reload>
-                    Reclamar Acceso Gratis
+                    🚀 Quiero Copiar Tus Señales Ahora
                 </a>
             </div>
         </div>
         
         <div class="hero-promo__video-wrapper glow-hover">
-            <video class="promo-video" autoplay loop muted playsinline preload="none" poster="/assets/photos/logo-512x512.png"
+            <video class="promo-video" autoplay loop muted playsinline preload="metadata" poster="/assets/photos/logo-512x512.png"
                    title="Video Promocional — Academia VIP Tu Esposo Trader"
                    aria-label="Video de presentación del programa VIP de trading y copytrading automático">
                 <source src="/assets/videos/promocion_vip.mp4" type="video/mp4" />
@@ -569,4 +576,13 @@
   <p class="footer__credit">Desarrollado por KATACLISM</p>
   <small>Operar en mercados financieros implica riesgos. Gestiona tu capital con responsabilidad.</small>
 </footer>
+
+<!-- Mobile Sticky CTA Bar (solo visible en móvil) -->
+<div id="mobile-sticky-cta" class="mobile-sticky-cta" aria-hidden="true">
+    <a class="btn btn-primary mobile-sticky-cta__btn" href="https://t.me/+MMsbQZq6tAMzYTIx" target="_blank" rel="noopener" data-sveltekit-reload>
+        🚀 Quiero Copiar Tus Señales — Gratis
+    </a>
 </div>
+
+</div>
+
