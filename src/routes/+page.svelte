@@ -118,13 +118,13 @@
   <meta name="keywords" content="curso de trading gratis, psicotrading, copytrading Venezuela, señales opciones binarias, academia de trading">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="author" content="Enmanuel Díaz — Tu Esposo Trader">
-  <link rel="canonical" href="https://www.tuesposotrader.com/">
+  <link rel="canonical" href="https://tuesposotrader.com/">
 
   <!-- OPEN GRAPH -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Tu Esposo Trader">
   <meta property="og:locale" content="es_VE">
-  <meta property="og:url" content="https://www.tuesposotrader.com/">
+  <meta property="og:url" content="https://tuesposotrader.com/">
   <meta property="og:title" content="Academia de Trading y Copytrading Gratis | Tu Esposo Trader">
   <meta property="og:description" content="Señales forex gratis, copytrading automático con IA y Academia VIP de trading. Comunidad Telegram — 100 cupos gratuitos para Venezuela y LATAM.">
   <meta property="og:image" content="https://www.tuesposotrader.com/assets/photos/og-image.png">
