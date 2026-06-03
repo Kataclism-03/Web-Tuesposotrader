@@ -118,7 +118,7 @@
   <meta name="keywords" content="curso de trading gratis, psicotrading, copytrading Venezuela, señales opciones binarias, academia de trading">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="author" content="Enmanuel Díaz — Tu Esposo Trader">
-  <link rel="canonical" href="https://tuesposotrader.com/">
+  <link rel="canonical" href="https://www.tuesposotrader.com/">
 
   <!-- OPEN GRAPH -->
   <meta property="og:type" content="website">
@@ -211,7 +211,7 @@
         "duration": "PT2M30S",
         "thumbnailUrl": "https://www.tuesposotrader.com/assets/photos/logo-512x512.png",
         "contentUrl": "https://www.tuesposotrader.com/assets/videos/promocion_vip.mp4",
-        "uploadDate": "2025-11-19",
+        "uploadDate": "2025-11-19T00:00:00+00:00",
         "publisher": { "@id": "https://www.tuesposotrader.com/#organization" }
       },
       {

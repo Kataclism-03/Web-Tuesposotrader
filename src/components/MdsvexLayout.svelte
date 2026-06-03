@@ -1,4 +1,5 @@
 <script>
+  import { page } from '$app/stores';
   // MDsveX automatically passes frontmatter properties as exports
   let { 
     title = "Blog | Tu Esposo Trader", 
@@ -7,14 +8,19 @@
     author = "Tu Esposo Trader",
     children
   } = $props();
+
+  // Build canonical URL from current path
+  let canonicalUrl = $derived(`https://www.tuesposotrader.com${$page.url.pathname}`);
 </script>
 
 <!-- SEO METADATA INJECTION -->
 <svelte:head>
   <title>{title} | Tu Esposo Trader</title>
   <meta name="description" content="{description}" />
+  <link rel="canonical" href="{canonicalUrl}" />
   <meta property="og:title" content="{title}" />
   <meta property="og:description" content="{description}" />
+  <meta property="og:url" content="{canonicalUrl}" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Tu Esposo Trader" />
   <meta property="og:image" content="https://www.tuesposotrader.com/assets/photos/og-image.png" />
