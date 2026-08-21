@@ -19,7 +19,58 @@
   <title>Automatizar Opciones Binarias con IA | Tu Esposo Trader</title>
   <meta name="description" content="Aprende a automatizar tus operaciones de opciones binarias. Nuestro sistema gestiona el riesgo y elimina el factor emocional para una rentabilidad real.">
   <meta name="keywords" content="automatizar opciones binarias, copytrading binarias, bot para iq option, señales automáticas binarias">
-  <link rel="canonical" href="https://www.tuesposotrader.com/automatizar-opciones-binarias">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://tuesposotrader.com/automatizar-opciones-binarias">
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Automatizar Opciones Binarias con IA | Tu Esposo Trader">
+  <meta property="og:description" content="Elimina las emociones del trading. Sistema automático de opciones binarias con gestión de riesgo IA.">
+  <meta property="og:url" content="https://tuesposotrader.com/automatizar-opciones-binarias">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tu Esposo Trader">
+  <meta property="og:locale" content="es_VE">
+  <meta property="og:image" content="https://tuesposotrader.com/assets/photos/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@tuesposotrader">
+  <meta name="twitter:title" content="Automatizar Opciones Binarias con IA | Tu Esposo Trader">
+  <meta name="twitter:description" content="Elimina las emociones del trading. Sistema automático de opciones binarias con gestión de riesgo IA.">
+  <meta name="twitter:image" content="https://tuesposotrader.com/assets/photos/og-image.png">
+
+  <!-- JSON-LD Structured Data -->
+  {@html `<script type="application/ld+json">${JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Bot Automatización Opciones Binarias — Tu Esposo Trader",
+        "description": "Sistema de automatización de operaciones de opciones binarias con gestión de riesgo por IA. Elimina el factor emocional del trading.",
+        "url": "https://tuesposotrader.com/automatizar-opciones-binarias",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web, Telegram",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@type": "Organization", "name": "Tu Esposo Trader" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "¿Se puede automatizar IQ Option / Pocket Option?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, nuestro ecosistema está diseñado para integrarse con los principales brokers de opciones binarias de forma segura, respetando sus políticas de conexión." } },
+          { "@type": "Question", "name": "¿Quién controla el riesgo?", "acceptedAnswer": { "@type": "Answer", "text": "Tú tienes el control absoluto. En el panel configuras cuánto dinero invertir por operación y cuál es tu límite máximo de ganancias o pérdidas por día." } },
+          { "@type": "Question", "name": "¿Qué pasa con el psicotrading?", "acceptedAnswer": { "@type": "Answer", "text": "La automatización soluciona el 90% de los errores humanos (venganza, miedo o avaricia). El bot opera de forma puramente matemática siguiendo estrategias probadas." } }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://tuesposotrader.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Automatizar Opciones Binarias" }
+        ]
+      }
+    ]
+  })}</script>`}
 </svelte:head>
 
 <div id="page-wrapper" class="page-wrapper">

@@ -19,17 +19,43 @@
 <svelte:head>
     <title>Blog Oficial | Tu Esposo Trader</title>
     <meta name="description" content="Artículos, guías y tutoriales sobre opciones binarias, forex, copytrading y brokers en Venezuela y LATAM." />
+    <link rel="canonical" href="https://tuesposotrader.com/blog" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     
-    <meta property="og:title" content="Biblioteca de Trading | Tu Esposo Trader" />
-    <meta property="og:description" content="Artículos élite, estrategias de IQ Option y Exnova, y secretos para no quemar tu cuenta." />
+    <meta property="og:title" content="Blog de Trading | Tu Esposo Trader" />
+    <meta property="og:description" content="Artículos, guías y tutoriales sobre opciones binarias, forex, copytrading y brokers en Venezuela y LATAM." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.tuesposotrader.com/blog" />
-    <meta property="og:image" content="https://www.tuesposotrader.com/assets/photos/og-image.png" />
+    <meta property="og:url" content="https://tuesposotrader.com/blog" />
+    <meta property="og:site_name" content="Tu Esposo Trader" />
+    <meta property="og:locale" content="es_VE" />
+    <meta property="og:image" content="https://tuesposotrader.com/assets/photos/og-image.png" />
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Biblioteca de Trading | Tu Esposo Trader" />
-    <meta name="twitter:description" content="Artículos élite, estrategias y secretos para ganar en Opciones Binarias y Forex." />
-    <meta name="twitter:image" content="https://www.tuesposotrader.com/assets/photos/og-image.png" />
+    <meta name="twitter:site" content="@tuesposotrader" />
+    <meta name="twitter:title" content="Blog de Trading | Tu Esposo Trader" />
+    <meta name="twitter:description" content="Artículos, guías y tutoriales sobre opciones binarias, forex, copytrading y brokers." />
+    <meta name="twitter:image" content="https://tuesposotrader.com/assets/photos/og-image.png" />
+
+    {@html `<script type="application/ld+json">${JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "CollectionPage",
+          "name": "Blog de Trading — Tu Esposo Trader",
+          "description": "Artículos, guías y tutoriales sobre opciones binarias, forex, copytrading y brokers en Venezuela y LATAM.",
+          "url": "https://tuesposotrader.com/blog",
+          "isPartOf": { "@type": "WebSite", "name": "Tu Esposo Trader", "url": "https://tuesposotrader.com/" },
+          "inLanguage": "es"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://tuesposotrader.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog" }
+          ]
+        }
+      ]
+    })}</script>`}
 </svelte:head>
 
 <section class="blog-index">

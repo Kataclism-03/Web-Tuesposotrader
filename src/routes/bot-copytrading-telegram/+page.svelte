@@ -19,7 +19,58 @@
   <title>El Mejor Bot Copytrading para Telegram | Tu Esposo Trader</title>
   <meta name="description" content="Descubre cómo funciona nuestro bot de copytrading automático por Telegram. Copia operaciones de expertos 24/7 sin complicaciones.">
   <meta name="keywords" content="bot copytrading telegram, copytrading telegram gratis, señales automatizadas telegram, bot telegram opciones binarias">
-  <link rel="canonical" href="https://www.tuesposotrader.com/bot-copytrading-telegram">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://tuesposotrader.com/bot-copytrading-telegram">
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="El Mejor Bot Copytrading para Telegram | Tu Esposo Trader">
+  <meta property="og:description" content="Bot de copytrading automático por Telegram. Copia operaciones de expertos 24/7 en tu broker.">
+  <meta property="og:url" content="https://tuesposotrader.com/bot-copytrading-telegram">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tu Esposo Trader">
+  <meta property="og:locale" content="es_VE">
+  <meta property="og:image" content="https://tuesposotrader.com/assets/photos/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@tuesposotrader">
+  <meta name="twitter:title" content="El Mejor Bot Copytrading para Telegram | Tu Esposo Trader">
+  <meta name="twitter:description" content="Bot de copytrading automático por Telegram. Copia operaciones de expertos 24/7 en tu broker.">
+  <meta name="twitter:image" content="https://tuesposotrader.com/assets/photos/og-image.png">
+
+  <!-- JSON-LD Structured Data -->
+  {@html `<script type="application/ld+json">${JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "Bot Copytrading Telegram — Tu Esposo Trader",
+        "description": "Bot de copytrading automático por Telegram que copia operaciones de expertos directamente a tu broker 24/7.",
+        "url": "https://tuesposotrader.com/bot-copytrading-telegram",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web, Telegram",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "provider": { "@type": "Organization", "name": "Tu Esposo Trader" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "¿Cómo funciona el bot de Telegram?", "acceptedAnswer": { "@type": "Answer", "text": "Nuestro sistema lee las operaciones enviadas al canal VIP de Telegram y las ejecuta instantáneamente en tu cuenta del broker, replicando la operación en tiempo real." } },
+          { "@type": "Question", "name": "¿Necesito dejar mi PC encendida?", "acceptedAnswer": { "@type": "Answer", "text": "¡No! Todo el sistema está alojado en la nube. Una vez que configuras tu cuenta, el bot funciona 24/7 sin que necesites internet o batería en tu teléfono." } },
+          { "@type": "Question", "name": "¿Es seguro para mi capital?", "acceptedAnswer": { "@type": "Answer", "text": "Totalmente. El bot nunca tiene acceso a retirar tus fondos, solo tiene permiso para abrir y cerrar operaciones según el límite de riesgo que tú mismo configures." } }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://tuesposotrader.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Bot Copytrading Telegram" }
+        ]
+      }
+    ]
+  })}</script>`}
 </svelte:head>
 
 <div id="page-wrapper" class="page-wrapper">

@@ -127,12 +127,12 @@
   <meta property="og:url" content="https://tuesposotrader.com/">
   <meta property="og:title" content="Academia de Trading y Copytrading Gratis | Tu Esposo Trader">
   <meta property="og:description" content="Señales forex gratis, copytrading automático con IA y Academia VIP de trading. Comunidad Telegram — 100 cupos gratuitos para Venezuela y LATAM.">
-  <meta property="og:image" content="https://www.tuesposotrader.com/assets/photos/og-image.png">
+  <meta property="og:image" content="https://tuesposotrader.com/assets/photos/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Logo Tu Esposo Trader — Academia de Trading y Copytrading">
   <meta property="og:image:type" content="image/png">
-  <meta property="og:updated_time" content="2026-05-21T00:00:00+00:00">
+  <meta property="og:updated_time" content="2026-08-21T00:00:00+00:00">
 
   <!-- TWITTER / X CARDS -->
   <meta name="twitter:card" content="summary_large_image">
@@ -140,7 +140,7 @@
   <meta name="twitter:creator" content="@tuesposotrader">
   <meta name="twitter:title" content="Curso de Trading Gratis + Copytrading IA | Tu Esposo Trader">
   <meta name="twitter:description" content="Señales forex, copytrading automático y academia VIP. 100 cupos gratis disponibles. Únete al canal de Telegram ahora.">
-  <meta name="twitter:image" content="https://www.tuesposotrader.com/assets/photos/logo-512x512.png">
+  <meta name="twitter:image" content="https://tuesposotrader.com/assets/photos/logo-512x512.png">
   <meta name="twitter:image:alt" content="Logo Tu Esposo Trader — Academia de Trading y Copytrading">
 
   <!-- JSON-LD SCHEMA.ORG COMPLETO -->
@@ -150,24 +150,19 @@
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://www.tuesposotrader.com/#website",
-        "url": "https://www.tuesposotrader.com/",
+        "@id": "https://tuesposotrader.com/#website",
+        "url": "https://tuesposotrader.com/",
         "name": "Tu Esposo Trader",
         "description": "Academia de trading, señales forex gratis y copytrading automático con IA.",
-        "inLanguage": "es",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://www.tuesposotrader.com/?s={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
+        "inLanguage": "es"
       },
       {
         "@type": "Person",
-        "@id": "https://www.tuesposotrader.com/#enmanuel-diaz",
+        "@id": "https://tuesposotrader.com/#enmanuel-diaz",
         "name": "Enmanuel Díaz",
         "alternateName": "Tu Esposo Trader",
         "description": "Trader profesional con 8 años de experiencia. Fundador de la Academia Tu Esposo Trader.",
-        "url": "https://www.tuesposotrader.com/",
+        "url": "https://tuesposotrader.com/",
         "sameAs": [
           "https://t.me/+MMsbQZq6tAMzYTIx",
           "https://www.tiktok.com/@tuesposotrader",
@@ -178,22 +173,22 @@
       },
       {
         "@type": "EducationalOrganization",
-        "@id": "https://www.tuesposotrader.com/#organization",
+        "@id": "https://tuesposotrader.com/#organization",
         "name": "Academia Tu Esposo Trader",
-        "url": "https://www.tuesposotrader.com/",
-        "logo": { "@type": "ImageObject", "url": "https://www.tuesposotrader.com/assets/photos/logo-512x512.png", "width": 512, "height": 512 },
+        "url": "https://tuesposotrader.com/",
+        "logo": { "@type": "ImageObject", "url": "https://tuesposotrader.com/assets/photos/logo-512x512.png", "width": 512, "height": 512 },
         "description": "Academia VIP de trading, finanzas y copytrading automático con IA. Cursos gratis, señales forex y comunidad en Telegram.",
-        "founder": { "@id": "https://www.tuesposotrader.com/#enmanuel-diaz" }
+        "founder": { "@id": "https://tuesposotrader.com/#enmanuel-diaz" }
       },
       {
         "@type": "Course",
         "name": "Programa VIP de Trading, Finanzas y Copytrading",
         "description": "Aprende trading desde cero. Incluye señales forex en vivo, copytrading automático con IA, scripts exclusivos y clases en directo. Acceso 100% gratuito para los primeros 100 cupos.",
-        "url": "https://www.tuesposotrader.com/",
+        "url": "https://tuesposotrader.com/",
         "isAccessibleForFree": true,
         "inLanguage": "es",
-        "provider": { "@id": "https://www.tuesposotrader.com/#organization" },
-        "instructor": { "@id": "https://www.tuesposotrader.com/#enmanuel-diaz" },
+        "provider": { "@id": "https://tuesposotrader.com/#organization" },
+        "instructor": { "@id": "https://tuesposotrader.com/#enmanuel-diaz" },
         "hasCourseInstance": { "@type": "CourseInstance", "courseMode": ["online"], "inLanguage": "es" },
         "offers": {
           "@type": "Offer",
@@ -209,15 +204,15 @@
         "name": "Video Promocional — Academia VIP Tu Esposo Trader",
         "description": "Conoce el programa VIP de trading: cursos gratis, copytrading automático con IA, señales forex y clases en vivo.",
         "duration": "PT2M30S",
-        "thumbnailUrl": "https://www.tuesposotrader.com/assets/photos/logo-512x512.png",
-        "contentUrl": "https://www.tuesposotrader.com/assets/videos/promocion_vip.mp4",
+        "thumbnailUrl": "https://tuesposotrader.com/assets/photos/logo-512x512.png",
+        "contentUrl": "https://tuesposotrader.com/assets/videos/promocion_vip.mp4",
         "uploadDate": "2025-11-19T00:00:00+00:00",
-        "publisher": { "@id": "https://www.tuesposotrader.com/#organization" }
+        "publisher": { "@id": "https://tuesposotrader.com/#organization" }
       },
       {
         "@type": "AggregateRating",
-        "@id": "https://www.tuesposotrader.com/#rating",
-        "itemReviewed": { "@id": "https://www.tuesposotrader.com/#organization" },
+        "@id": "https://tuesposotrader.com/#rating",
+        "itemReviewed": { "@id": "https://tuesposotrader.com/#organization" },
         "ratingValue": "5",
         "bestRating": "5",
         "worstRating": "1",
@@ -226,7 +221,7 @@
       {
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.tuesposotrader.com/" }
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://tuesposotrader.com/" }
         ]
       },
       {
