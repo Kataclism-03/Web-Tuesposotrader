@@ -1,10 +1,7 @@
 name: 🤖 SEO Blog Agent
 
 on:
-  # Ejecutar automáticamente cada 3 días a las 9:00 AM hora Venezuela (UTC-4 = 13:00 UTC)
-  schedule:
-    - cron: '0 13 */3 * *'
-  # Permitir ejecución manual desde la pestaña Actions
+  # Ejecución únicamente bajo supervisión manual para evitar contenido repetido o truncado
   workflow_dispatch:
 
 permissions:

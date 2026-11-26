@@ -71,7 +71,8 @@ def call_gemini(system_prompt, user_prompt):
             },
             "generationConfig": {
                 "temperature": 0.7,
-                "maxOutputTokens": 8192
+                "maxOutputTokens": 16384,
+                "thinkingConfig": {"thinkingBudget": 512}
             }
         }
 
@@ -178,8 +179,8 @@ Tu tarea es generar UN artículo completo en formato Markdown válido para un bl
 REGLAS ESTRICTAS DE FORMATO:
 1. El artículo DEBE comenzar con un bloque Frontmatter YAML delimitado por tres guiones (---).
 2. El Frontmatter DEBE contener exactamente estos 4 campos:
-   - title: string entre comillas dobles, máximo 65 caracteres, incluir keyword principal
-   - description: string entre comillas dobles, máximo 155 caracteres, persuasiva y con keyword
+   - title: string entre comillas dobles, máximo 52 caracteres, incluir keyword principal
+   - description: string entre comillas dobles, máximo 150 caracteres, texto plano sin asteriscos (**)
    - date: formato ISO "YYYY-MM-DD" con la fecha proporcionada
    - author: siempre "Tu Esposo Trader"
 3. Después del Frontmatter, el cuerpo del artículo debe tener:
@@ -198,7 +199,7 @@ REGLAS ESTRICTAS DE FORMATO:
 
 **¿Listo para dar el siguiente paso?** Únete a nuestra comunidad gratuita de trading y empieza a operar con confianza:
 
-👉 [Canal de Telegram — Señales Gratis y Comunidad VIP](https://t.me/+_X-l-DBTBqY3MGQ5)
+👉 [Canal de Telegram — Señales Gratis y Comunidad VIP](https://t.me/+gsWkXwzphmUzZmYx)
 
 👉 [Visita la Academia](https://tuesposotrader.com/) para descubrir todos nuestros recursos educativos diseñados para el trader hispano.
 
@@ -391,14 +392,14 @@ REGLAS:
 - Entre 80-150 palabras
 - Aporta valor real PRIMERO (como si respondieras una pregunta)
 - Al final, incluye de forma NATURAL el enlace al artículo
-- Después del enlace del artículo, agrega algo como: "Y si buscan una comunidad de trading en español con señales gratis, pasen por el Telegram: https://t.me/+_X-l-DBTBqY3MGQ5"
+- Después del enlace del artículo, agrega algo como: "Y si buscan una comunidad de trading en español con señales gratis, pasen por el Telegram: https://t.me/+gsWkXwzphmUzZmYx"
 - NUNCA ser spammy ni promocional
 - Tono: cercano, como un colega trader latino
 - Español neutro latinoamericano
 - NO usar emojis
 - NO incluyas encabezados ni formato markdown, solo texto plano"""
 
-    response_user = f"Tema: {article_title}\nURL del artículo: {article_url}\nTelegram del grupo: https://t.me/+_X-l-DBTBqY3MGQ5"
+    response_user = f"Tema: {article_title}\nURL del artículo: {article_url}\nTelegram del grupo: https://t.me/+gsWkXwzphmUzZmYx"
 
     try:
         forum_text = call_gemini(response_prompt, response_user)
@@ -430,7 +431,7 @@ REGLAS:
     result += f'2. site:rankia.com/foros "{article_title.split(":")[0].strip()}"\n'
     result += f'3. site:es.quora.com "{article_title.split(":")[0].strip()}"\n'
 
-    result += "\n📲 GRUPO TELEGRAM: https://t.me/+_X-l-DBTBqY3MGQ5"
+    result += "\n📲 GRUPO TELEGRAM: https://t.me/+gsWkXwzphmUzZmYx"
 
     return result
 
@@ -503,9 +504,12 @@ def main():
     print(f"   📝 Título: {title}")
     print(f"   🔗 Slug: {slug}")
 
-    # ── Paso 4: Verificar que no sea duplicado ──
+    # ── Paso 4: Verificar que no sea duplicado ni esté truncado ──
     if slug in existing_slugs:
         raise ValueError(f"❌ DUPLICADO DETECTADO: El slug '{slug}' ya existe. Abortando.")
+    last_char = article_content.strip()[-1:]
+    if len(article_content.split()) < 600 or last_char not in (".", "!", "?", ")"):
+        raise ValueError("❌ ARTÍCULO TRUNCADO O INCOMPLETO DETECTADO. Abortando guardado.")
 
     # ── Paso 5: Crear el archivo en el directorio del blog ──
     article_dir = BLOG_DIR / slug

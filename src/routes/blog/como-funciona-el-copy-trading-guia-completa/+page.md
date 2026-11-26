@@ -183,4 +183,4 @@ En **Tu Esposo Trader** no prometemos Lamborghinis ni mansiones. Prometemos educ
 
 **¿Listo para empezar con el pie derecho?**
 
-[Únete a nuestro Canal de Telegram Gratis](https://t.me/+_X-l-DBTBqY3MGQ5) donde compartimos análisis diarios, resultados reales y educación gratuita para traders de Latinoamérica, o [Visita la Academia](/) para acceder a nuestro programa completo de formación.
+[Únete a nuestro Canal de Telegram Gratis](https://t.me/+gsWkXwzphmUzZmYx) donde compartimos análisis diarios, resultados reales y educación gratuita para traders de Latinoamérica, o [Visita la Academia](/) para acceder a nuestro programa completo de formación.

@@ -100,4 +100,4 @@ Mi gente, el mundo del trading es fascinante y puede ser muy gratificante, pero 
 
 Protege tu capital como si fuera tu vida, porque en muchos casos, es el fruto de tu esfuerzo y sacrificio. Aprende, practica, sé paciente y mantente siempre alerta. El mercado está lleno de oportunidades, pero también de lobos con piel de oveja. Con la información correcta y una actitud precavida, podrás navegar estas aguas con mayor confianza y construir un futuro financiero sólido, lejos de las estafas.
 
-[Únete a nuestro Canal de Telegram Gratis](https://t.me/+_X-l-DBTBqY3MGQ5) y empieza a transformar tu mentalidad y tu economía hoy mismo, o [Visita la Academia](/) para descubrir todos nuestros recursos educativos diseñados para el trader hispano.
+[Únete a nuestro Canal de Telegram Gratis](https://t.me/+gsWkXwzphmUzZmYx) y empieza a transformar tu mentalidad y tu economía hoy mismo, o [Visita la Academia](/) para descubrir todos nuestros recursos educativos diseñados para el trader hispano.

@@ -11,6 +11,8 @@ Si ya estás operando en Exnova y tus ganancias empiezan a acumularse, el siguie
 
 Vamos a ser directos como siempre en **Tu Esposo Trader**: el proceso de **retirar ganancias Exnova** no es complicado, pero si no lo haces correctamente puedes perder dinero en comisiones de red, elegir la blockchain equivocada, o incluso enviar fondos a una dirección incorrecta y perderlos para siempre. Por eso creamos esta guía paso a paso, cubriendo cada detalle para que no tengas ninguna duda.
 
+> 💡 **Herramienta Interactiva Gratuita:** Antes de transferir, calcula exactamente cuánto recibirás neto en USDT (TRC-20 vs ERC-20) y en tu moneda local usando nuestra [Calculadora de Retiro de Exnova a Binance](/calculadora-retiro-exnova-binance).
+
 ## ¿Por Qué Retirar de Exnova a Binance?
 
 Antes de entrar en el tutorial, es importante entender por qué Binance es el destino preferido para el **exnova retiro** de ganancias en Latinoamérica:
@@ -196,4 +198,4 @@ En **Tu Esposo Trader** creemos que la educación financiera completa incluye no
 
 **¿Quieres aprender más sobre trading, retiros y estrategias reales?**
 
-[Únete a nuestro Canal de Telegram Gratis](https://t.me/+_X-l-DBTBqY3MGQ5) donde compartimos tutoriales, alertas y educación diaria para la comunidad trader de Latinoamérica, o [Visita la Academia](/) para acceder a todos nuestros recursos de formación profesional.
+[Únete a nuestro Canal de Telegram Gratis](https://t.me/+gsWkXwzphmUzZmYx) donde compartimos tutoriales, alertas y educación diaria para la comunidad trader de Latinoamérica, o [Visita la Academia](/) para acceder a todos nuestros recursos de formación profesional.

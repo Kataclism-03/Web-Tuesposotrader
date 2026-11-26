@@ -204,4 +204,4 @@ El **análisis técnico** es tu mapa y tu brújula en el complejo mundo de las *
 
 Empieza hoy mismo a aplicar estos conceptos en tu cuenta demo, explora las herramientas que te ofrecen brokers confiables como **IQ Option** o **Exnova**, y sé constante. Con dedicación, el **análisis técnico** se convertirá en una de tus habilidades más valiosas como trader. ¡Éxito en tus operaciones!
 
-[Únete a nuestro Canal de Telegram Gratis](https://t.me/+_X-l-DBTBqY3MGQ5) y empieza a transformar tu mentalidad y tu economía hoy mismo, o [Visita la Academia](/) para descubrir todos nuestros recursos educativos diseñados para el trader hispano.
+[Únete a nuestro Canal de Telegram Gratis](https://t.me/+gsWkXwzphmUzZmYx) y empieza a transformar tu mentalidad y tu economía hoy mismo, o [Visita la Academia](/) para descubrir todos nuestros recursos educativos diseñados para el trader hispano.

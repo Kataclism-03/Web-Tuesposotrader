@@ -358,4 +358,4 @@ En **Tu Esposo Trader**, caminamos contigo en cada paso. Sin mentiras, sin prome
 
 **¿Estás listo para empezar tu transformación financiera?**
 
-[Únete a nuestro Canal de Telegram Gratis](https://t.me/+_X-l-DBTBqY3MGQ5) donde cada día compartimos educación, análisis de mercado y el apoyo de una comunidad real de traders hispanos, o [Visita la Academia](/) para descubrir todos nuestros programas de formación diseñados para llevarte de principiante a trader rentable.
+[Únete a nuestro Canal de Telegram Gratis](https://t.me/+gsWkXwzphmUzZmYx) donde cada día compartimos educación, análisis de mercado y el apoyo de una comunidad real de traders hispanos, o [Visita la Academia](/) para descubrir todos nuestros programas de formación diseñados para llevarte de principiante a trader rentable.

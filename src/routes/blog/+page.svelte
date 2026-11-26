@@ -1,19 +1,42 @@
-<script>
-    // Usamos Vite glob para encontrar todos los artículos en las subcarpetas del blog
-    const allPosts = import.meta.glob('./*/+page.md', { eager: true });
-    
-    // Convertimos el objeto en un array mapeado con la data
+<script lang="ts">
+    import { INTERACTIVE_TOOLS } from '$lib/config.js';
+
+    interface MdsvexModule {
+        metadata?: {
+            title?: string;
+            description?: string;
+            date?: string;
+            author?: string;
+        };
+    }
+
+    const allPosts = import.meta.glob<MdsvexModule>('./*/+page.md', { eager: true });
+
     const posts = Object.entries(allPosts).map(([path, module]) => {
         const slug = path.split('/')[1];
         const metadata = module.metadata || {};
         return {
             slug,
             title: metadata.title || 'Artículo sin título',
-            description: metadata.description || '',
+            description: (metadata.description || '').replace(/\*\*/g, ''),
             date: metadata.date || 'Reciente',
             author: metadata.author || 'Tu Esposo Trader'
         };
-    }).sort((a, b) => new Date(b.date) - new Date(a.date));
+    }).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+    let query = $state('');
+    let filteredPosts = $derived(
+        query.trim() === ''
+            ? posts
+            : posts.filter((p) => {
+                  const needle = query.trim().toLowerCase();
+                  return (
+                      p.title.toLowerCase().includes(needle) ||
+                      p.description.toLowerCase().includes(needle) ||
+                      p.slug.includes(needle)
+                  );
+              })
+    );
 </script>
 
 <svelte:head>
@@ -66,8 +89,29 @@
         </div>
     </div>
 
+    <div class="blog-tools-row" aria-label="Calculadoras y herramientas">
+        {#each INTERACTIVE_TOOLS as tool}
+            <a href={tool.href} class="blog-tool-card">
+                <span class="blog-tool-card__badge">{tool.badge}</span>
+                <strong>{tool.title}</strong>
+                <span>Usar herramienta gratis →</span>
+            </a>
+        {/each}
+    </div>
+
+    <div class="blog-search-bar">
+        <label for="blog-search" class="sr-only">Buscar guía o tema</label>
+        <input
+            id="blog-search"
+            type="search"
+            placeholder="Buscar guía (ej. Exnova, retirar a Binance, gestión de riesgo, horarios)..."
+            bind:value={query}
+        />
+        <span class="blog-search-count">{filteredPosts.length} guías</span>
+    </div>
+
     <div class="posts-grid">
-        {#each posts as post}
+        {#each filteredPosts as post}
             <a href="/blog/{post.slug}" class="post-card glow-hover">
                 <div class="post-card__content">
                     <span class="post-date">{new Date(post.date).toLocaleDateString('es-VE')}</span>
@@ -214,5 +258,90 @@
     
     .post-card:hover .read-more {
         text-decoration: underline;
+    }
+
+    .blog-tools-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+        text-align: left;
+    }
+
+    .blog-tool-card {
+        background: var(--clr-surface);
+        border: 1px solid rgba(255, 215, 0, 0.25);
+        border-radius: 12px;
+        padding: 1rem 1.15rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        text-decoration: none !important;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .blog-tool-card:hover {
+        transform: translateY(-2px);
+        border-color: var(--clr-accent);
+    }
+
+    .blog-tool-card__badge {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--clr-accent);
+    }
+
+    .blog-tool-card strong {
+        color: #fff;
+        font-size: 0.98rem;
+    }
+
+    .blog-tool-card span:last-child {
+        font-size: 0.84rem;
+        color: var(--clr-primary);
+        font-weight: 600;
+    }
+
+    .blog-search-bar {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        margin-bottom: 2.25rem;
+    }
+
+    .blog-search-bar input {
+        flex: 1;
+        background: var(--clr-surface);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 10px;
+        padding: 0.8rem 1rem;
+        font-size: 0.98rem;
+        font-family: inherit;
+    }
+
+    .blog-search-bar input:focus {
+        outline: 2px solid var(--clr-primary);
+        border-color: transparent;
+    }
+
+    .blog-search-count {
+        font-size: 0.86rem;
+        color: var(--clr-muted);
+        white-space: nowrap;
+    }
+
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
     }
 </style>

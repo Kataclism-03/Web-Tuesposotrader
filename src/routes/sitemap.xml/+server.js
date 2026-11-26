@@ -6,6 +6,9 @@ const DOMAIN = 'https://tuesposotrader.com';
 // Static pages with their priorities
 const staticPages = [
   { url: '/', changefreq: 'weekly', priority: '1.0' },
+  { url: '/calculadora-retiro-exnova-binance', changefreq: 'weekly', priority: '0.95' },
+  { url: '/calculadora-interes-compuesto', changefreq: 'weekly', priority: '0.95' },
+  { url: '/horarios-mercado-forex-otc', changefreq: 'daily', priority: '0.95' },
   { url: '/blog', changefreq: 'daily', priority: '0.9' },
   { url: '/automatizar-opciones-binarias', changefreq: 'monthly', priority: '0.9' },
   { url: '/bot-copytrading-telegram', changefreq: 'monthly', priority: '0.9' },
@@ -15,7 +18,7 @@ const staticPages = [
 const hreflangCodes = ['es-VE', 'es-CO', 'es-MX', 'es-AR', 'es-419', 'es'];
 
 export async function GET() {
-  // Auto-discover all blog posts from the filesystem
+  /** @type {Record<string, { metadata?: { date?: string } }>} */
   const blogModules = import.meta.glob('/src/routes/blog/*/+page.md', { eager: true });
 
   const blogPosts = Object.entries(blogModules).map(([path, module]) => {

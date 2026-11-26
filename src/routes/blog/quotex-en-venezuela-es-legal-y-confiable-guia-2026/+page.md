@@ -187,6 +187,6 @@ La pregunta no es tanto "¿Quotex es confiable?" sino "¿**tú** estás preparad
 
 Si este artículo te ayudó a tomar una decisión más informada, imagina lo que puedes lograr con acceso a una comunidad completa de traders reales que operan todos los días, comparten análisis y se apoyan mutuamente sin ventas de humo.
 
-[Únete a nuestro Canal de Telegram Gratis](https://t.me/+_X-l-DBTBqY3MGQ5) donde publicamos señales, análisis de mercado en tiempo real y contenido educativo diseñado para el trader latinoamericano. Si prefieres dar un paso más serio, [Visita la Academia](/) para conocer nuestro sistema de copytrading automatizado y nuestros cursos completos de trading.
+[Únete a nuestro Canal de Telegram Gratis](https://t.me/+gsWkXwzphmUzZmYx) donde publicamos señales, análisis de mercado en tiempo real y contenido educativo diseñado para el trader latinoamericano. Si prefieres dar un paso más serio, [Visita la Academia](/) para conocer nuestro sistema de copytrading automatizado y nuestros cursos completos de trading.
 
 No dejes que el miedo te paralice, pero tampoco dejes que las falsas promesas te cieguen. Edúcate, practica en demo, y cuando estés listo, opera con responsabilidad.

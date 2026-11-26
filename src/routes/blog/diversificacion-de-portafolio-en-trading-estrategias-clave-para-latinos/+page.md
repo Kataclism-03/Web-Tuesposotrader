@@ -1,6 +1,6 @@
 ---
 title: "Diversificación de Portafolio en Trading: Estrategias Clave para Latinos"
-description: "Descubre cómo la **diversificación de portafolio en trading** protege tu capital y maximiza tus ganancias. Guía esencial para traders de Venezuela, Colombia y Latam."
+description: "Descubre cómo la diversificación de portafolio en trading protege tu capital y maximiza tus ganancias. Guía esencial para traders de Venezuela, Colombia y Latam."
 date: "2026-11-19"
 author: "Tu Esposo Trader"
 ---

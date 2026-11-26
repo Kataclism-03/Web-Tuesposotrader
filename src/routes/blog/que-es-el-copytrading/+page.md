@@ -148,6 +148,6 @@ No confíes ciegamente en nadie de internet, **ni siquiera en nosotros**. Prueba
 
 **¿Listo para dar tus primeros pasos de forma responsable, con un equipo que te habla siempre con la verdad?**
 
-👉 [Únete a nuestro Canal de Telegram Gratis](https://t.me/+_X-l-DBTBqY3MGQ5) y empieza a transformar tu mentalidad y tu economía hoy mismo.
+👉 [Únete a nuestro Canal de Telegram Gratis](https://t.me/+gsWkXwzphmUzZmYx) y empieza a transformar tu mentalidad y tu economía hoy mismo.
 
 📚 [Visita la Academia](/) para descubrir todos nuestros recursos educativos diseñados para el trader hispano que quiere resultados reales, no fantasías.

@@ -35,4 +35,35 @@ No todos los **niveles de soporte y resistencia** son iguales, mi gente. Hay dos
 
 ### Soporte y Resistencia Estáticos
 
-Estos son los más fáciles de identificar y los que la mayoría de los traders aprenden primero. Son niveles de precio fijos, horizontales, que no cambian con el tiempo. Se basan en máximos y mínimos anteriores del precio. Por ejemplo, si el precio de una divisa llegó a 1.2500 y de ahí cayó, y luego volvió a subir y rebotó de nuevo en 1.2500, ese
+Estos niveles horizontales funcionan mejor cuando coinciden al menos dos o tres toques claros en marcos de 15 minutos (M15) o 1 hora (H1) antes de buscar entradas rápidas en 1 minuto (M1). En lugar de trazar una línea milimétrica, traza siempre una **zona de reacción** que cubra el cuerpo y la mecha de las velas previas.
+
+### Soporte y Resistencia Dinámicos
+
+Los niveles dinámicos se mueven junto con el precio mediante medias móviles exponenciales (como la EMA de 20, 50 o 200 períodos) o líneas de tendencia. Cuando el mercado está en tendencia clara durante la sesión de Londres o Nueva York, el precio suele retroceder hacia la EMA 20 o EMA 50 y usarla como escalón dinámico para continuar su dirección principal.
+
+## Paso a Paso para Trazar Niveles Confiables sin Saturar el Gráfico
+
+1. **Abre primero un marco mayor (M15 o H1):** Identifica el techo y el piso más evidentes de la sesión actual. Si marcas veinte líneas en M1, terminarás paralizado.
+2. **Prioriza zonas con rechazo limpio (mechas largas):** Una mecha larga muestra agotamiento inmediato y órdenes opuestas defendiendo ese precio.
+3. **Verifica el horario del mercado:** Los niveles se respetan con mayor limpieza cuando hay liquidez real activa. Puedes revisar qué bolsas están abiertas ahora mismo en nuestro [Monitor de Horarios de Mercado en Vivo](/horarios-mercado-forex-otc).
+4. **Espera confirmación antes de entrar:** No dispares por adelantado solo porque el precio tocó la línea; espera el cierre de vela o rechazo claro y respeta tu límite diario calculado en la [Calculadora de Interés Compuesto y Riesgo](/calculadora-interes-compuesto).
+
+## Preguntas Frecuentes sobre Soporte y Resistencia
+
+### ¿Cuántas líneas de soporte y resistencia debo dibujar en mi gráfico?
+
+Entre 2 y 4 zonas relevantes alrededor del precio actual son suficientes. Llenar la pantalla de líneas genera dudas innecesarias y señales contradictorias en operativas de corto plazo.
+
+### ¿Qué pasa cuando un soporte o resistencia se rompe con una vela grande?
+
+Se produce el cambio de polaridad: un techo superado con volumen suele convertirse en piso en el siguiente retroceso, y un piso perforado pasa a actuar como nuevo techo.
+
+### ¿Funcionan igual en mercado OTC que en sesiones regulares?
+
+En activos OTC conviene combinar zonas horizontales recientes con horarios de liquidez diurna y evitar operar de madrugada o durante ventanas de mantenimiento del servidor.
+
+---
+
+**¿Listo para dar el siguiente paso?** Únete a nuestra comunidad gratuita y recibe sesiones educativas, herramientas de control de riesgo y alertas en vivo:
+
+👉 [Canal Oficial de Telegram — Señales Gratis y Comunidad VIP](https://t.me/+gsWkXwzphmUzZmYx)

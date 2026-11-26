@@ -241,6 +241,6 @@ En Tu Esposo Trader no te vendemos sueños. Te enseñamos la realidad del mercad
 
 ¿Listo para empezar a operar con estrategias reales y dejar de quemar tu dinero con técnicas basura?
 
-[Únete a nuestro Canal de Telegram Gratis](https://t.me/+_X-l-DBTBqY3MGQ5) donde compartimos análisis diarios, señales de mercado y educación continua para traders de Latinoamérica. O [Visita la Academia](/) para acceder a nuestros cursos completos y al sistema de copytrading automatizado.
+[Únete a nuestro Canal de Telegram Gratis](https://t.me/+gsWkXwzphmUzZmYx) donde compartimos análisis diarios, señales de mercado y educación continua para traders de Latinoamérica. O [Visita la Academia](/) para acceder a nuestros cursos completos y al sistema de copytrading automatizado.
 
 Tu futuro financiero empieza con una decisión. Hazla hoy.

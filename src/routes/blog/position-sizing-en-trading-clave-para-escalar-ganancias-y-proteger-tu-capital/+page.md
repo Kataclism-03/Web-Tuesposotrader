@@ -1,6 +1,6 @@
 ---
 title: "Position Sizing en Trading: Clave para Escalar Ganancias y Proteger tu Capital"
-description: "Aprende **position sizing en trading** para gestionar tu riesgo y escalar tu capital como un profesional. Evita quemar cuentas y optimiza tus ganancias en Forex, Opciones Binarias y más."
+description: "Aprende position sizing en trading para gestionar tu riesgo y escalar tu capital como un profesional. Evita quemar cuentas y optimiza tus ganancias en Forex, Opciones Binarias y más."
 date: "2026-11-10"
 author: "Tu Esposo Trader"
 ---
@@ -170,4 +170,10 @@ Aquí te respondo algunas dudas comunes que suelen surgir sobre el **position si
 Para la mayoría de los traders, especialmente los principiantes e intermedios, un riesgo del **1% al 2% de tu capital por operación** es lo más recomendable. Esto te permite soportar rachas perdedoras sin quemar tu cuenta y te da espacio para aprender y crecer. Los traders muy agresivos pueden ir al 3%, pero a mayor riesgo, mayor es la probabilidad de ruina.
 
 #### ### ¿El position sizing es lo mismo que la gestión de riesgo?
-No, el **position sizing** es un componente **fundamental** de la gestión de riesgo, pero no es lo mismo. La gestión de riesgo es un concepto más amplio que incluye establecer Stop Loss, Take Profit, diversificación, correlación de activos, y el control de las emociones
+No, el **position sizing** es un componente **fundamental** de la gestión de riesgo, pero no es lo mismo.
+
+---
+
+**¿Quieres llevar tu operativa al siguiente nivel con estructura y disciplina?** Explora nuestras herramientas gratuitas ([Calculadora de Retiro a Binance](/calculadora-retiro-exnova-binance), [Calculadora de Interés Compuesto](/calculadora-interes-compuesto) y [Horarios de Mercado en Vivo](/horarios-mercado-forex-otc)) o únete hoy a nuestra comunidad oficial:
+
+👉 [Canal Oficial de Telegram — Señales Gratis y Comunidad VIP](https://t.me/+gsWkXwzphmUzZmYx)

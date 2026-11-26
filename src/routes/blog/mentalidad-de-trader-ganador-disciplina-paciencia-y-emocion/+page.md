@@ -111,5 +111,8 @@ Para mejorar tu **disciplina en el trading**, debes:
 4.  Practicar en cuentas demo hasta que puedas seguir tu plan sin fallar.
 5.  Establecer límites de riesgo y de operaciones diarias/semanales y respetarlos religiosamente.
 
-### ¿Es normal sentir miedo o avaricia al operar?
-Sí, es completamente normal sentir miedo, avaricia
+---
+
+**¿Quieres llevar tu operativa al siguiente nivel con estructura y disciplina?** Explora nuestras herramientas gratuitas ([Calculadora de Retiro a Binance](/calculadora-retiro-exnova-binance), [Calculadora de Interés Compuesto](/calculadora-interes-compuesto) y [Horarios de Mercado en Vivo](/horarios-mercado-forex-otc)) o únete hoy a nuestra comunidad oficial:
+
+👉 [Canal Oficial de Telegram — Señales Gratis y Comunidad VIP](https://t.me/+gsWkXwzphmUzZmYx)

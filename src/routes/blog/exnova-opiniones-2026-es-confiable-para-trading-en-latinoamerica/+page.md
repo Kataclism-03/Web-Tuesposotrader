@@ -185,6 +185,6 @@ Sin embargo, es crucial que seas consciente de la realidad de su regulación off
 
 **¿Listo para dar el siguiente paso?** Únete a nuestra comunidad gratuita de trading y empieza a operar con confianza:
 
-👉 [Canal de Telegram — Señales Gratis y Comunidad VIP](https://t.me/+_X-l-DBTBqY3MGQ5)
+👉 [Canal de Telegram — Señales Gratis y Comunidad VIP](https://t.me/+gsWkXwzphmUzZmYx)
 
 👉 [Visita la Academia](https://tuesposotrader.com/) para descubrir todos nuestros recursos educativos diseñados para el trader hispano.

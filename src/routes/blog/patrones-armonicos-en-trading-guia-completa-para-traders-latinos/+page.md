@@ -1,6 +1,6 @@
 ---
 title: "Patrones Armónicos en Trading: Guía Completa para Traders Latinos"
-description: "Descubre los **patrones armónicos en trading** para identificar puntos de giro y mejorar tus entradas. Una guía completa para el trader hispano que busca precisión."
+description: "Descubre los patrones armónicos en trading para identificar puntos de giro y mejorar tus entradas. Una guía completa para el trader hispano que busca precisión."
 date: "2026-10-28"
 author: "Tu Esposo Trader"
 ---

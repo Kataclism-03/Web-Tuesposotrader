@@ -217,6 +217,6 @@ El **copytrading gratis sin experiencia** es la puerta de entrada más accesible
 
 ¿Estás listo para dar el primer paso?
 
-[Únete a nuestro Canal de Telegram Gratis](https://t.me/+_X-l-DBTBqY3MGQ5) para conectarte con nuestra comunidad, activar el copytrading automatizado y empezar a ver resultados reales. O [Visita la Academia](/) para explorar nuestros recursos educativos completos.
+[Únete a nuestro Canal de Telegram Gratis](https://t.me/+gsWkXwzphmUzZmYx) para conectarte con nuestra comunidad, activar el copytrading automatizado y empezar a ver resultados reales. O [Visita la Academia](/) para explorar nuestros recursos educativos completos.
 
 El mejor momento para empezar fue ayer. El segundo mejor momento es ahora.

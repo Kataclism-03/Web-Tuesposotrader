@@ -1,5 +1,6 @@
 <script>
     import { onMount } from 'svelte';
+    import { INTERACTIVE_TOOLS, trackTelegramClick } from '$lib/config.js';
 
     // ── FOMO Counter (dynamic, persisted per visitor) ──
     let claimedSpots = $state(87);
@@ -164,7 +165,7 @@
         "description": "Trader profesional con 8 años de experiencia. Fundador de la Academia Tu Esposo Trader.",
         "url": "https://tuesposotrader.com/",
         "sameAs": [
-          "https://t.me/+MMsbQZq6tAMzYTIx",
+          "https://t.me/+gsWkXwzphmUzZmYx",
           "https://www.tiktok.com/@tuesposotrader",
           "https://youtube.com/@tuesposotraderoficial",
           "https://www.instagram.com/tuesposotraderoficial"
@@ -251,14 +252,14 @@
         </div>
     </div>
     <nav id="main-nav" class="header__nav" aria-label="Navegación principal">
+        <a href="/calculadora-retiro-exnova-binance">Calculadora P2P</a>
+        <a href="/calculadora-interes-compuesto">Interés Compuesto</a>
+        <a href="/horarios-mercado-forex-otc">Horarios en Vivo</a>
         <a href="/blog">Blog & Academia</a>
-        <a href="#about">Sobre mí</a>
         <a href="#benefits">Servicios VIP</a>
-        <a href="#psicotrading">Psicotrading</a>
-        <a href="#testimonios">Testimonios</a>
         <a href="#social-links">Comunidad</a>
     </nav>
-    <a class="header__cta glow-hover" href="https://t.me/+MMsbQZq6tAMzYTIx" target="_blank" rel="noopener" data-sveltekit-reload>🔥 Quiero Acceso Gratis</a>
+    <a class="header__cta glow-hover" href="https://t.me/+gsWkXwzphmUzZmYx" target="_blank" rel="noopener" data-sveltekit-reload onclick={() => trackTelegramClick('home_header')}>🔥 Quiero Acceso Gratis</a>
     <button id="hamburger-btn" class="hamburger-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
         <span></span><span></span><span></span>
     </button>
@@ -291,7 +292,7 @@
 
             <p class="hero__social-proof">🟢 <strong>+400 traders</strong> ya copian señales automáticamente — únete hoy gratis.</p>
             <div class="hero__actions">
-                <a class="btn btn-primary btn-pulse" href="https://t.me/+MMsbQZq6tAMzYTIx" target="_blank" rel="noopener" data-sveltekit-reload>
+                <a class="btn btn-primary btn-pulse" href="https://t.me/+gsWkXwzphmUzZmYx" target="_blank" rel="noopener" data-sveltekit-reload>
                     🚀 Quiero Copiar Tus Señales Ahora
                 </a>
             </div>
@@ -366,7 +367,7 @@
           </div>
         </div>
 
-        <a class="btn btn-primary btn-pulse" href="https://t.me/+MMsbQZq6tAMzYTIx" target="_blank" rel="noopener noreferrer">
+        <a class="btn btn-primary btn-pulse" href="https://t.me/+gsWkXwzphmUzZmYx" target="_blank" rel="noopener noreferrer">
           🔔 Quiero Acceso Anticipado
         </a>
       </div>
@@ -448,7 +449,7 @@
   <div class="social-links__grid">
 
     <a class="social-card social-card--telegram glow-hover reveal"
-       href="https://t.me/+MMsbQZq6tAMzYTIx"
+       href="https://t.me/+gsWkXwzphmUzZmYx"
        target="_blank" rel="noopener noreferrer">
       <span class="social-card__platform-icon">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
@@ -561,11 +562,32 @@
   </div>
 </section>
 
+<section class="benefits reveal" id="herramientas">
+  <header>
+    <h2>Herramientas Gratuitas en Tiempo Real</h2>
+    <p>Calcula retiros a Binance P2P, proyecta sesiones con tope diario y revisa qué mercados están abiertos hoy.</p>
+  </header>
+  <div class="benefits__grid">
+    {#each INTERACTIVE_TOOLS as tool}
+      <a href={tool.href} class="benefits__item" style="text-decoration: none; display: flex; flex-direction: column; gap: 0.65rem;">
+        <span style="font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--clr-accent);">{tool.badge}</span>
+        <h3>{tool.title}</h3>
+        <p style="flex: 1;">{tool.description}</p>
+        <span style="font-weight: 700; font-size: 0.9rem; color: var(--clr-primary);">Abrir herramienta →</span>
+      </a>
+    {/each}
+  </div>
+</section>
+
 </main>
 <footer class="footer">
-  <div style="margin-bottom: 2rem; display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+  <div style="margin-bottom: 2rem; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+    <a href="/calculadora-retiro-exnova-binance" style="color: var(--clr-accent); text-decoration: none;">Calculadora Retiro Exnova a Binance</a>
+    <a href="/calculadora-interes-compuesto" style="color: var(--clr-accent); text-decoration: none;">Calculadora Interés Compuesto</a>
+    <a href="/horarios-mercado-forex-otc" style="color: var(--clr-accent); text-decoration: none;">Horarios de Mercado en Vivo</a>
     <a href="/bot-copytrading-telegram" style="color: var(--clr-primary); text-decoration: none;">Bot Copytrading Telegram</a>
     <a href="/automatizar-opciones-binarias" style="color: var(--clr-primary); text-decoration: none;">Automatizar Opciones Binarias</a>
+    <a href="/blog" style="color: var(--clr-primary); text-decoration: none;">Blog Oficial</a>
   </div>
   <p>© 2026 Tu Esposo Trader · Enmanuel Díaz. Todos los derechos reservados.</p>
   <p class="footer__credit">Desarrollado por KATACLISM</p>
@@ -574,7 +596,7 @@
 
 <!-- Mobile Sticky CTA Bar (solo visible en móvil) -->
 <div id="mobile-sticky-cta" class="mobile-sticky-cta" aria-hidden="true">
-    <a class="btn btn-primary mobile-sticky-cta__btn" href="https://t.me/+MMsbQZq6tAMzYTIx" target="_blank" rel="noopener" data-sveltekit-reload>
+    <a class="btn btn-primary mobile-sticky-cta__btn" href="https://t.me/+gsWkXwzphmUzZmYx" target="_blank" rel="noopener" data-sveltekit-reload>
         🚀 Quiero Copiar Tus Señales — Gratis
     </a>
 </div>

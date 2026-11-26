@@ -152,4 +152,4 @@ Para aplicar un **plan de trading** de forma efectiva, necesitas un broker confi
 
 Construir y seguir un **plan de trading** no es fácil, chamo. Requiere esfuerzo, disciplina y mucha autoconciencia. Pero te aseguro que es el paso más importante que puedes dar para transformar tu trading de un juego de azar en un negocio serio y potencialmente rentable. No busques atajos, no busques la "bala mágica". La magia está en la disciplina y en un **plan de trading** bien ejecutado. ¡Échale ganas!
 
-[Únete a nuestro Canal de Telegram Gratis](https://t.me/+_X-l-DBTBqY3MGQ5) y empieza a transformar tu mentalidad y tu economía hoy mismo, o [Visita la Academia](/) para descubrir todos nuestros recursos educativos diseñados para el trader hispano.
+[Únete a nuestro Canal de Telegram Gratis](https://t.me/+gsWkXwzphmUzZmYx) y empieza a transformar tu mentalidad y tu economía hoy mismo, o [Visita la Academia](/) para descubrir todos nuestros recursos educativos diseñados para el trader hispano.
